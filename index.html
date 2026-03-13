@@ -18,7 +18,7 @@
         <div class="c-mv">
             <h1 class="p-name">Sawako Okoba</h1>
             <nav>
-                <ul class="l-gnav">
+                <ul class="l-gnav l-wrapper">
                     <li class="c-gnav__li"><a href="/index.html">Top</a></li>
                     <li class="c-gnav__li"><a href="#about">About</a></li>
                     <li class="c-gnav__li"><a href="/works.html">Works</a></li>
@@ -26,31 +26,39 @@
             </nav>
         </div>
     </header>
-    <main>
-        <section class="l-wrapper" id="about">
-            <h2 class="c-section-title">About</h2>
-            <h3 class="c-sub-title">profile</h3>
-            <!-- <p>佐賀県武雄市出身、福岡市博多区在住。<br> -->
-            <!-- 接客やコールセンターオペレーターを経験。 -->
-            <!-- 現在は職業訓練校にてWeb制作スキルを学習中。 -->
-            </p>
-            <h3 class="c-sub-title">skill</h3>
-            <ul class="p-skill-icons">
-                <li><img src="image/html-icon.svg" alt="html"></li>
-                <li><img src="image/cssicon.svg" alt="css"></li>
-                <li><img src="image/js-icon.svg" alt="JavaScript"></li>
-                <li><img src="image/php-icon.svg" alt="php"></li>
-            </ul>
-
+    <main class="l-container">
+        <section class="l-wrapper l-about-section" id="about">
+            <h2 class="c-section-title">About Me</h2>
+            <div class="l-profile">
+                <h3 class="c-sub-title">profile</h3>
+                <p class="u-senter-text">
+                    オペレーターとして勤務していた際、システムのUIに疑問を持ったことをきっかけにウェブ業界へ興味を持ちました。<br>職業訓練校にてウェブ制作スキルを学習中です。（4月末修了予定）<br>技術を身に着けながらも、ユーザー目線を忘れず制作に取り組むエンジニアを目指しています。
+                </p>
+            </div>
+            <div class="l-skill">
+                <h3 class="c-sub-title">skill</h3>
+                <ul class="l-skill-icons">
+                    <li class="p-skill-icon"><img src="image/html-icon.svg" alt="html"></li>
+                    <li class="p-skill-icon"><img src="image/cssicon.svg" alt="css"></li>
+                    <li class="p-skill-icon"><img src="image/js-icon.svg" alt="JavaScript"></li>
+                    <li class="p-skill-icon"><img src="image/php-icon.svg" alt="php"></li>
+                </ul>
+            </div>
         </section>
         <section class="p-works">
-            <div class="l-wrapper">
+            <div class="l-wrapper p-works-inner">
                 <h2 class="c-section-title">Works</h2>
                 <ul>
                     <li class="c-work-card">
-                        <img class="c-works__img" src="image/reform-index.jpg" alt="リカレント工務店のトップページデザイン。"><a
-                            href="https://okoba-git.github.io/reform/index.html">リカレント工務店</a>
-                        <ul class="c-work-skills">
+                        <div class="c-works__link-area">
+                            <a class="c-works__link-text"
+                                href="https://okoba-git.github.io/reform/index.html">リカレント工務店</a>
+                            <a href="https://github.com/okoba-git/reform" class="c-works__link-img"><img
+                                    src="image/github-icon.svg" alt=""></a>
+                        </div>
+                        <img class="c-works__img" src="image/reform-index.jpg" alt="リカレント工務店のトップページデザイン。">
+
+                        <ul class="c-work__skills">
                             <li>HTML</li>
                             <li>CSS</li>
                             <li>JS</li>
@@ -59,7 +67,9 @@
                 </ul>
             </div>
         </section>
-        <p>Thank you for visiting me.</p>
+        <div class="p-msg-area">
+            <p class="u-senter-text">Thank you for visiting me.</p>
+        </div>
     </main>
     <footer class="l-footer"><small>&copy;Sawako Okoba</small></footer>
 </body>
