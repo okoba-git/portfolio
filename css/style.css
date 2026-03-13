@@ -15,7 +15,7 @@ img {
     width: 100%;
 }
 
-.u-senter-text {
+.u-center-text {
     text-align: center;
 }
 
@@ -35,24 +35,41 @@ img {
 .c-section-title {
     font-size: clamp(2.5rem, 1.972rem + 2.254vw, 4rem);
     text-align: center;
+    font-weight: bold;
+}
+
+/* 花のアイコン */
+.c-section-title::before {
+    content: '';
+    display: inline-block;
+    background: url(../image/flower-orange.svg) center center/cover;
+    width: clamp(1.875rem, 1.435rem + 1.878vw, 3.125rem);
+    height: clamp(1.875rem, 1.435rem + 1.878vw, 3.125rem);
+    /* 回転のアニメーション */
+    animation-name: rotateAnime;
+    animation-duration: 1.7s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
 }
 
 .c-sub-title {
     font-size: 32px;
+
 }
 
 /* MainVisual */
 .c-mv {
-    height: 600px;
-    background: url(../image/002stockphoto_TP_V.webp) center right/cover;
+    height: 550px;
+    background: url(../image/002stockphoto_TP_V.webp)no-repeat center right/cover;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
 
 .p-name {
-    font-size: 64px;
+    font-size: clamp(2.5rem, 1.972rem + 2.254vw, 4rem);
     text-align: right;
+    padding: 40px;
 }
 
 /* navigation */
@@ -64,7 +81,9 @@ img {
 
 .c-gnav__li {
     font-size: clamp(1.875rem, 1.479rem + 1.69vw, 3rem);
+    font-weight: bold;
     padding: 10px 30px;
+    border-radius: 4px;
 }
 
 .c-gnav__li:hover {
@@ -93,6 +112,9 @@ img {
     gap: 20px;
 }
 
+.p-profile-text {
+    font-family: 'Noto Sans JP', sans-serif;
+}
 
 /* skills */
 
@@ -111,22 +133,25 @@ img {
     padding-block: 30px;
 }
 
+.p-works__cards {
+    display: flex;
+    justify-content: space-between;
+}
 
 .c-work-card {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 16px;
+    background: var(--port-white);
+    width: 300px;
+    padding: 20px;
 }
 
 .c-works__link-area {
     display: flex;
-}
-
-.c-works__link-text {
-    border-bottom: 1px solid #000;
-    padding: 3px;
-    transition-duration: 0.8s;
+    align-items: center;
+    gap: 10px;
 }
 
 .c-works__link-img {
@@ -135,6 +160,7 @@ img {
 
 .c-works__link-text:hover,
 .c-works__link-img:hover {
+    transition-duration: 0.8s;
     filter: opacity(0.5);
 }
 
@@ -151,9 +177,114 @@ img {
     gap: 10px;
 }
 
+
+.c-work__skills li {
+    font-family: 'Noto Sans JP', sans-serif;
+    background-color: var(--port-orange);
+    padding: 2px 5px;
+}
+
+@media screen and (max-width: 768px) {
+    .p-works__cards {
+        flex-direction: column;
+        gap: 20px;
+        align-items: center;
+    }
+}
+
+/* MSG */
+.p-msg-area {
+    font-weight: bold;
+    position: relative;
+}
+
+.p-msg-area__msg {
+    animation-name: titleAnime;
+    animation-duration: 1.8s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+
+}
+
+
+/* TOPに戻るボタン */
+
+.p-top-btn {
+    width: 60px;
+    position: absolute;
+    right: 30px;
+    bottom: -100px;
+}
+
+.p-top-btn::before {
+    content: '▲';
+    font-size: 14px;
+}
+
+.p-top-btn:hover {
+    filter: saturate(270%);
+    transition-duration: 1.2s;
+}
+
 /* footer */
 
 .l-footer {
     background: var(--port-orange);
     padding-block: 20px;
+}
+
+.l-footer small {
+    font-size: 12px;
+}
+
+/* アニメーション */
+@keyframes blurAnime {
+    0% {
+        filter: blur(50px);
+    }
+
+    100% {
+        filter: blur(0px);
+    }
+
+}
+
+.c-mv {
+    animation-name: blurAnime;
+    animation-duration: 3.5s;
+    transition-timing-function: ease-out;
+}
+
+
+@keyframes rotateAnime {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    25% {
+        transform: rotate(90deg);
+    }
+
+    50% {
+        transform: rotate(180deg);
+    }
+
+    100% {
+        transform: rotate(270deg);
+    }
+}
+
+
+@keyframes titleAnime {
+    0% {
+        color: var(--port-pink);
+    }
+
+    50% {
+        color: var(--port-orange);
+    }
+
+    100% {
+        color: black;
+    }
 }

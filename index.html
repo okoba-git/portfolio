@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sawako Okoba</title>
+    <title>SAWA | Portfolio</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&family=Poiret+One&display=swap"
@@ -14,9 +14,9 @@
 </head>
 
 <body>
-    <header>
+    <header id="top">
         <div class="c-mv">
-            <h1 class="p-name">Sawako Okoba</h1>
+            <h1 class="p-name">SAWA(Lv.31)</h1>
             <nav>
                 <ul class="l-gnav l-wrapper">
                     <li class="c-gnav__li"><a href="index.html">Top</a></li>
@@ -28,11 +28,11 @@
     </header>
     <main class="l-container">
         <section class="l-wrapper l-about-section" id="about">
-            <h2 class="c-section-title">About Me</h2>
+            <h2 class="c-section-title">About</h2>
             <div class="l-profile">
                 <h3 class="c-sub-title">profile</h3>
-                <p class="u-senter-text">
-                    オペレーターとして勤務していた際、システムのUIに疑問を持ったことをきっかけにウェブ業界へ興味を持ちました。<br>職業訓練校にてウェブ制作スキルを学習中です。（4月末修了予定）<br>技術を身に着けながらも、ユーザー目線を忘れず制作に取り組むエンジニアを目指しています。
+                <p class="u-center-text p-profile-text">
+                    オペレーターとして勤務していた際、システムのUIに疑問を持ったことをきっかけにウェブ業界へ興味を持ちました。<br>只今、職業訓練校にてウェブ制作スキルを学習中です。（4月末修了予定）<br>技術を身に着けながらも、ユーザー目線を忘れず制作に取り組むエンジニアを目指しています。
                 </p>
             </div>
             <div class="l-skill">
@@ -45,33 +45,68 @@
                 </ul>
             </div>
         </section>
+
+
         <section class="p-works" id="works">
             <div class="l-wrapper p-works-inner">
                 <h2 class="c-section-title">Works</h2>
-                <ul>
+                <ul class="p-works__cards">
+
+
+                    <button id="reform-dialog">モーダルダイアログを開く</button>
+
                     <li class="c-work-card">
                         <div class="c-works__link-area">
-                            <a class="c-works__link-text"
-                                href="https://okoba-git.github.io/reform/index.html">リカレント工務店</a>
+                            <a class="c-works__link-text" href="https://okoba-git.github.io/reform/index.html">リカレント工務店
+                            </a>
                             <a href="https://github.com/okoba-git/reform" class="c-works__link-img"><img
                                     src="image/github-icon.svg" alt=""></a>
                         </div>
-                        <img class="c-works__img" src="image/reform-index.jpg" alt="リカレント工務店のトップページデザイン。">
+                        <img class="c-works__img" src="image/reform-index.jpg" alt="リカレント工務店HPのトップページデザイン画像。">
 
                         <ul class="c-work__skills">
                             <li>HTML</li>
                             <li>CSS</li>
                             <li>JS</li>
+                            <li>個人制作</li>
                         </ul>
                     </li>
+
+
+                    <li class="c-work-card">
+                        <div class="c-works__link-area">
+                            <a class="c-works__link-text" href="https://dwdw0421-blip.github.io/gyoza-fes_a/">餃子フェス
+                            </a>
+                            <a href="https://github.com/dwdw0421-blip/gyoza-fes_a" class="c-works__link-img"><img
+                                    src="image/github-icon.svg" alt=""></a>
+                        </div>
+                        <img class="c-works__img" src="image/gyoza-top.jpg" alt="餃子フェスHPのトップページデザイン画像。">
+                        <ul class="c-work__skills">
+                            <li>HTML</li>
+                            <li>CSS</li>
+                            <li>グループ制作</li>
+                        </ul>
+                    </li>
+
+
                 </ul>
             </div>
         </section>
+
+
+
         <div class="p-msg-area">
-            <p class="u-senter-text">Thank you for visiting me.</p>
+            <p class="u-center-text p-msg-area__msg">Thank you for visiting me.</p>
+            <a class="p-top-btn u-center-text" href="#top">TOP
+                <img src="image/flower-pink.svg" alt="">
+            </a>
         </div>
+
+
     </main>
-    <footer class="l-footer"><small>&copy;Sawako Okoba</small></footer>
+    <footer class="l-footer u-center-text"><small>&copy;SAWA</small></footer>
 </body>
+
+<script src="js/script.js"></script>
 
 </html>
