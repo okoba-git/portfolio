@@ -1,13 +1,19 @@
 :root {
     --port-white: #F1F1F3;
     --port-pink: #FFD1DC;
-    --port-orange: #FCB303;
+    --port-orange: rgb(252 211 3/0.5);
 }
 
 
 body {
     background: var(--port-white);
-    font-family: 'Poiret One', 'NotoSansJP', serif;
+    font-family: 'Poiret One', 'Noto Sans JP', sans-serif;
+    text-align: center;
+    font-size: 20px;
+}
+
+img {
+    width: 100%;
 }
 
 .l-wrapper {
@@ -16,11 +22,84 @@ body {
     margin: 0 auto;
 }
 
-.c-mv {
-    height: 600px;
-    background: url(../image/002stockphoto_TP_V.webp) center center/cover;
+.c-section-title {
+    font-size: 64px;
 }
 
-.c-works {
+.c-sub-title {
+    font-size: 32px;
+}
+
+/* MainVisual */
+.c-mv {
+    height: 600px;
+    background: url(../image/002stockphoto_TP_V.webp) center right/cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.p-name {
+    font-size: 64px;
+    text-align: right;
+}
+
+.l-gnav {
+    display: flex;
+    justify-content: space-around;
+}
+
+.c-gnav__li {
+    font-size: 48px;
+    padding: 10px 30px;
+}
+
+.c-gnav__li:hover {
+    background: var(--port-orange);
+}
+
+
+/* About */
+
+/* skills */
+.p-skill-icons {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+}
+
+.p-skill-icons img {
+    width: 100px;
+}
+
+/* Works */
+.p-works {
     background: var(--port-pink);
+}
+
+.c-work-skills {
+    display: flex;
+    font-size: 16px;
+    gap: 10px;
+}
+
+.c-work-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+}
+
+.c-works__img {
+    width: 270px;
+    height: 300px;
+    object-fit: cover;
+    object-position: top;
+}
+
+/* footer */
+
+.l-footer {
+    background: var(--port-orange);
+    padding-block: 20px;
 }

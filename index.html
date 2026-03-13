@@ -16,30 +16,52 @@
 <body>
     <header>
         <div class="c-mv">
-            <h1>Sawako Okoba</h1>
+            <h1 class="p-name">Sawako Okoba</h1>
             <nav>
-                <ul>
-                    <li><a href="/index.html">Top</a></li>
-                    <li><a href="">About</a></li>
-                    <li><a href="/works.html">Works</a></li>
+                <ul class="l-gnav">
+                    <li class="c-gnav__li"><a href="/index.html">Top</a></li>
+                    <li class="c-gnav__li"><a href="#about">About</a></li>
+                    <li class="c-gnav__li"><a href="/works.html">Works</a></li>
                 </ul>
             </nav>
         </div>
     </header>
     <main>
-        <section class="l-wrapper">
-            <h2>About</h2>
-            <h3>profile</h3>
-            <h3>skill</h3>
+        <section class="l-wrapper" id="about">
+            <h2 class="c-section-title">About</h2>
+            <h3 class="c-sub-title">profile</h3>
+            <!-- <p>佐賀県武雄市出身、福岡市博多区在住。<br> -->
+            <!-- 接客やコールセンターオペレーターを経験。 -->
+            <!-- 現在は職業訓練校にてWeb制作スキルを学習中。 -->
+            </p>
+            <h3 class="c-sub-title">skill</h3>
+            <ul class="p-skill-icons">
+                <li><img src="image/html-icon.svg" alt="html"></li>
+                <li><img src="image/cssicon.svg" alt="css"></li>
+                <li><img src="image/js-icon.svg" alt="JavaScript"></li>
+                <li><img src="image/php-icon.svg" alt="php"></li>
+            </ul>
+
         </section>
-        <section class="c-works">
+        <section class="p-works">
             <div class="l-wrapper">
-                <h2>Works</h2>
+                <h2 class="c-section-title">Works</h2>
+                <ul>
+                    <li class="c-work-card">
+                        <img class="c-works__img" src="image/reform-index.jpg" alt="リカレント工務店のトップページデザイン。"><a
+                            href="https://okoba-git.github.io/reform/index.html">リカレント工務店</a>
+                        <ul class="c-work-skills">
+                            <li>HTML</li>
+                            <li>CSS</li>
+                            <li>JS</li>
+                        </ul>
+                    </li>
+                </ul>
             </div>
         </section>
         <p>Thank you for visiting me.</p>
     </main>
-    <footer></footer>
+    <footer class="l-footer"><small>&copy;Sawako Okoba</small></footer>
 </body>
 
 </html>
