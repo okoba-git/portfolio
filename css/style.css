@@ -1,0 +1,26 @@
+:root {
+    --port-white: #F1F1F3;
+    --port-pink: #FFD1DC;
+    --port-orange: #FCB303;
+}
+
+
+body {
+    background: var(--port-white);
+    font-family: 'Poiret One', 'NotoSansJP', serif;
+}
+
+.l-wrapper {
+    width: 90%;
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+.c-mv {
+    height: 600px;
+    background: url(../image/002stockphoto_TP_V.webp) center center/cover;
+}
+
+.c-works {
+    background: var(--port-pink);
+}
