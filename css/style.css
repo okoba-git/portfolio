@@ -177,12 +177,12 @@ img {
     gap: 10px;
 }
 
-
 .c-work__skills li {
     font-family: 'Noto Sans JP', sans-serif;
     background-color: var(--port-orange);
     padding: 2px 5px;
 }
+
 
 @media screen and (max-width: 768px) {
     .p-works__cards {
@@ -190,6 +190,15 @@ img {
         gap: 20px;
         align-items: center;
     }
+}
+
+
+/* ダイアログ */
+.l-dialog:modal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
 }
 
 /* MSG */
