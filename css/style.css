@@ -1,14 +1,23 @@
 :root {
     --port-white: #F1F1F3;
+    --port-black: #222;
     --port-pink: #FFD1DC;
     --port-orange: rgb(252 211 3 / 0.7);
 }
 
+html {
+    /* スムーススクロール */
+    scroll-behavior: smooth;
+}
 
 body {
     background: var(--port-white);
     font-family: 'Poiret One', 'Noto Sans JP', sans-serif;
     font-size: 20px;
+    /* ぼかしアニメーション */
+    /* animation-name: blurAnime; */
+    /* animation-duration: 2.3s; */
+    /* transition-timing-function: ease-out; */
 }
 
 img {
@@ -38,6 +47,10 @@ img {
     font-weight: bold;
 }
 
+.c-sub-title {
+    font-size: 32px;
+}
+
 /* 花のアイコン */
 .c-section-title::before {
     content: '';
@@ -45,16 +58,25 @@ img {
     background: url(../image/flower-orange.svg) center center/cover;
     width: clamp(1.875rem, 1.435rem + 1.878vw, 3.125rem);
     height: clamp(1.875rem, 1.435rem + 1.878vw, 3.125rem);
-    /* 回転のアニメーション */
-    animation-name: rotateAnime;
-    animation-duration: 1.7s;
-    animation-iteration-count: infinite;
-    animation-timing-function: linear;
 }
 
-.c-sub-title {
-    font-size: 32px;
+.c-sub-title::before,
+.c-card-title::before {
+    content: '';
+    display: inline-block;
+    background: url(../image/flower-pink.png) center center/cover;
+    width: 20px;
+    height: 20px;
+}
 
+.c-section-title::before,
+.c-sub-title::before,
+.c-card-title::before {
+    /* 回転のアニメーション */
+    animation-name: rotateAnime;
+    animation-duration: 10.0s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
 }
 
 /* MainVisual */
@@ -64,31 +86,35 @@ img {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    animation-name: blurAnime;
-    animation-duration: 3.5s;
-    transition-timing-function: ease-out;
+    position: relative;
 }
 
 .p-name {
     font-size: clamp(2.5rem, 1.972rem + 2.254vw, 4rem);
-    padding: 40px;
+    padding: 80px 40px;
+    text-align: end;
 }
 
 /* navigation */
 
+.c-white-band {
+    /* 画面に固定 */
+    position: fixed;
+    background-color: rgba(241, 241, 243, 0.7);
+    filter: opacity(0.5);
+    width: 100vw;
+    z-index: 1;
+
+}
+
 .l-gnav {
     display: flex;
     gap: clamp(0.5rem, -0.644rem + 4.883vw, 3.75rem);
-    /* 画面に固定 */
-    position: fixed;
-    background-color: var(--port-white);
-    filter: opacity(0.8);
-    width: 100vw;
-    z-index: 1;
 }
 
-.l-gnav:hover {
-    filter: opacity(1.4);
+.c-white-band:hover {
+    background-color: rgba(241, 241, 243, 1);
+    filter: opacity(1);
     transition-duration: 0.8s;
 }
 
@@ -102,6 +128,93 @@ img {
 .c-gnav__li:hover {
     transition-duration: 0.8s;
     background: var(--port-orange);
+}
+
+.c-humburger__nav {
+    display: none;
+}
+
+@media screen and (max-width: 768px) {
+    .l-gnav {
+        display: none;
+    }
+
+    .c-humburger {
+        position: fixed;
+        right: 20px;
+        top: 40px;
+        z-index: 5;
+        padding: 20px;
+        transition: all 300ms ease-in;
+    }
+
+    .c-humburger__span {
+        display: block;
+        position: relative;
+    }
+
+    .c-humburger__span::before,
+    .c-humburger__span::after {
+        position: absolute;
+        content: '';
+    }
+
+    .c-humburger__span::before {
+        top: 10px;
+    }
+
+    .c-humburger__span::after {
+        top: -10px;
+    }
+
+
+    .c-humburger__span,
+    .c-humburger__span::before,
+    .c-humburger__span::after {
+        width: 40px;
+        height: 1px;
+        background-color: var(--port-black);
+    }
+
+    /* クラス名activeがついたとき */
+
+    .active {
+        top: 0;
+        right: 0;
+        z-index: 4;
+        background-color: #FCB303;
+        width: 40vw;
+        height: 100vh;
+    }
+
+    /* position: fixed; */
+    /* right: 20px; */
+    /* top: 40px; */
+    /* padding: 20px; */
+
+
+    .active .c-humburger__span {
+        background-color: #FCB303;
+    }
+
+    .active .c-humburger__span::before {
+        transform: rotate(45deg);
+        top: 0;
+    }
+
+
+    .active .c-humburger__span::after {
+        transform: rotate(-45deg);
+        top: 0;
+    }
+
+    .active .c-humburger__nav {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
 }
 
 /* セクションの中の余白 */
@@ -168,20 +281,8 @@ img {
 
 }
 
-.c-works__link-area {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
 .c-works__link-img {
     width: 30px;
-}
-
-.c-works__link-text:hover,
-.c-works__link-img:hover {
-    transition-duration: 0.8s;
-    filter: opacity(0.5);
 }
 
 .c-works__img {
@@ -222,6 +323,32 @@ img {
     gap: 40px;
 }
 
+
+.c-works__link-area {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+
+.c-works__link-text,
+.close {
+    background: var(--port-black);
+    color: var(--port-white);
+    display: block;
+    padding: 5px 10px;
+    border-radius: 20px;
+}
+
+
+.c-works__link-text:hover,
+.c-works__link-img:hover,
+.close:hover {
+    transition-duration: 0.8s;
+    filter: opacity(0.7);
+}
+
+
 /* MSG */
 .p-msg-area {
     font-weight: bold;
@@ -240,10 +367,11 @@ img {
 /* TOPに戻るボタン */
 
 .p-top-btn {
-    width: 60px;
+    width: 100px;
     position: absolute;
     right: 30px;
     bottom: -100px;
+    filter: grayscale(60%);
 }
 
 .p-top-btn::before {
@@ -252,8 +380,15 @@ img {
 }
 
 .p-top-btn:hover {
-    filter: saturate(320%);
-    transition-duration: 0.8s;
+    filter: grayscale(0%);
+    transition-duration: 0.5s;
+}
+
+
+@media screen and (max-width: 768px) {
+    .p-top-btn {
+        filter: grayscale(0%);
+    }
 }
 
 /* footer */

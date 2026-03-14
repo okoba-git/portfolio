@@ -1,3 +1,12 @@
+// ハンバーガーメニュー
+// const toggleArea = document.getElementById('toggle-area');
+const humbugerBtn = document.getElementById('humburger-btn');
+
+humbugerBtn.addEventListener('click', () => {
+    humbugerBtn.classList.toggle("active");
+})
+
+
 // モーダルに必要な要素取得
 const reformBtn = document.getElementById('reform-btn');
 const reformDialog = document.getElementById('reform-dialog');
