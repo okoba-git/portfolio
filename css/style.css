@@ -16,7 +16,7 @@ body {
     font-size: 20px;
     /* ぼかしアニメーション */
     /* animation-name: blurAnime; */
-    /* animation-duration: 2.3s; */
+    /* animation-duration: 3.2s; */
     /* transition-timing-function: ease-out; */
 }
 
@@ -69,10 +69,11 @@ img {
     height: 20px;
 }
 
+
+/* 回転のアニメーション */
 .c-section-title::before,
 .c-sub-title::before,
 .c-card-title::before {
-    /* 回転のアニメーション */
     animation-name: rotateAnime;
     animation-duration: 10.0s;
     animation-iteration-count: infinite;
@@ -97,14 +98,13 @@ img {
 
 /* navigation */
 
-.c-white-band {
+.c-header {
     /* 画面に固定 */
     position: fixed;
-    background-color: rgba(241, 241, 243, 0.7);
-    filter: opacity(0.5);
+    background-color: var(--port-white);
+    filter: opacity(0.9);
     width: 100vw;
     z-index: 1;
-
 }
 
 .l-gnav {
@@ -139,34 +139,32 @@ img {
         display: none;
     }
 
-    .c-humburger {
+    .c-humburger__icon {
+        /* クリックの範囲を広くする */
+        padding: 40px;
+        /* 右上に固定 */
         position: fixed;
-        right: 20px;
-        top: 40px;
-        z-index: 5;
-        padding: 20px;
-        transition: all 300ms ease-in;
+        right: 0;
+        z-index: 20;
     }
 
     .c-humburger__span {
-        display: block;
         position: relative;
-    }
-
-    .c-humburger__span::before,
-    .c-humburger__span::after {
-        position: absolute;
-        content: '';
+        display: block;
     }
 
     .c-humburger__span::before {
+        position: absolute;
+        content: '';
         top: 10px;
     }
 
+
     .c-humburger__span::after {
+        position: absolute;
+        content: '';
         top: -10px;
     }
-
 
     .c-humburger__span,
     .c-humburger__span::before,
@@ -176,25 +174,16 @@ img {
         background-color: var(--port-black);
     }
 
-    /* クラス名activeがついたとき */
-
-    .active {
-        top: 0;
-        right: 0;
-        z-index: 4;
-        background-color: #FCB303;
-        width: 40vw;
-        height: 100vh;
+    /* activeがついたとき */
+    /* 変化速度 */
+    .active .c-humburger__span,
+    .active .c-humburger__span::before,
+    .active .c-humburger__span::after {
+        transition: all 300ms ease-in 100ms;
     }
 
-    /* position: fixed; */
-    /* right: 20px; */
-    /* top: 40px; */
-    /* padding: 20px; */
-
-
     .active .c-humburger__span {
-        background-color: #FCB303;
+        background-color: var(--port-orange);
     }
 
     .active .c-humburger__span::before {
@@ -202,20 +191,33 @@ img {
         top: 0;
     }
 
-
     .active .c-humburger__span::after {
         transform: rotate(-45deg);
         top: 0;
     }
 
     .active .c-humburger__nav {
-        height: 100%;
+        background-color: var(--port-orange);
+        display: block;
+        width: 40vw;
+        height: 100vh;
+        z-index: 10;
+        /* 中央ぞろえ */
         display: flex;
         flex-direction: column;
         justify-content: center;
+        /* 右に固定 */
+        position: fixed;
+        right: 0;
     }
 
+    .active .c-gnav__li {
+        width: 100%;
+    }
 }
+
+
+
 
 /* セクションの中の余白 */
 
