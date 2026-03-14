@@ -64,11 +64,13 @@ img {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    animation-name: blurAnime;
+    animation-duration: 3.5s;
+    transition-timing-function: ease-out;
 }
 
 .p-name {
     font-size: clamp(2.5rem, 1.972rem + 2.254vw, 4rem);
-    text-align: right;
     padding: 40px;
 }
 
@@ -77,6 +79,17 @@ img {
 .l-gnav {
     display: flex;
     gap: clamp(0.5rem, -0.644rem + 4.883vw, 3.75rem);
+    /* 画面に固定 */
+    position: fixed;
+    background-color: var(--port-white);
+    filter: opacity(0.8);
+    width: 100vw;
+    z-index: 1;
+}
+
+.l-gnav:hover {
+    filter: opacity(1.4);
+    transition-duration: 0.8s;
 }
 
 .c-gnav__li {
@@ -134,8 +147,10 @@ img {
 }
 
 .p-works__cards {
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: min(20px);
+    grid-template-rows: auto;
 }
 
 .c-work-card {
@@ -143,9 +158,14 @@ img {
     flex-direction: column;
     align-items: center;
     gap: 16px;
-    background: var(--port-white);
-    width: 300px;
-    padding: 20px;
+    background: #ccc;
+    padding: 20px 30px;
+}
+
+.c-work-card:hover {
+    transition: all 0.4s ease-out;
+    transform: scale(1.04);
+
 }
 
 .c-works__link-area {
@@ -173,6 +193,7 @@ img {
 
 .c-work__skills {
     display: flex;
+    flex-wrap: wrap;
     font-size: 16px;
     gap: 10px;
 }
@@ -231,8 +252,8 @@ img {
 }
 
 .p-top-btn:hover {
-    filter: saturate(270%);
-    transition-duration: 1.2s;
+    filter: saturate(320%);
+    transition-duration: 0.8s;
 }
 
 /* footer */
@@ -258,24 +279,10 @@ img {
 
 }
 
-.c-mv {
-    animation-name: blurAnime;
-    animation-duration: 3.5s;
-    transition-timing-function: ease-out;
-}
-
 
 @keyframes rotateAnime {
     0% {
         transform: rotate(0deg);
-    }
-
-    25% {
-        transform: rotate(90deg);
-    }
-
-    50% {
-        transform: rotate(180deg);
     }
 
     100% {
@@ -285,12 +292,9 @@ img {
 
 
 @keyframes titleAnime {
-    0% {
-        color: var(--port-pink);
-    }
 
     50% {
-        color: var(--port-orange);
+        color: lightcoral;
     }
 
     100% {
