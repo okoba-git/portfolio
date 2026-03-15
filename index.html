@@ -9,14 +9,14 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&family=Poiret+One&display=swap"
         rel="stylesheet">
-    <link rel=“icon” href=“favicon.ico” type=“image/x-icon”>
+    <link rel=“icon” href="favicon.ico" type=“image/x-icon”>
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
     <header id="top">
-        <div class="c-mv">
+        <div class="p-mv">
             <div class="c-humburger" id="humburger-btn">
                 <div class="c-humburger__icon">
                     <span class="c-humburger__span"></span>
@@ -43,7 +43,7 @@
             <div class="l-profile">
                 <h3 class="c-sub-title">profile</h3>
                 <p class="u-center-text p-profile-text">
-                    オペレーターとして勤務していた際、システムのUIに疑問を持ったことをきっかけにウェブ業界へ興味を持ちました。<br>創造社リカレントスクール福岡校にてウェブ制作スキルを学習中です。（4月末修了予定）<br>技術を身に着けながらも、ユーザー目線を忘れず制作・提案に取り組む人材を目指しています。
+                    オペレーターとして勤務していた際、システムのUIに疑問を持ったことをきっかけにウェブ業界へ興味を持ちました。<br>2025年11月より翌年4月末まで、創造社リカレントスクール福岡校にてウェブ制作スキルを学習中です。<br>技術を身に着けながらも、ユーザー目線を忘れず制作・提案に取り組む人材を目指しています。
                 </p>
             </div>
             <div class="l-skill">
@@ -59,16 +59,16 @@
 
 
         <section class="p-works" id="works">
-            <div class="l-wrapper p-works-inner">
+            <div class="l-wrapper l-works-inner">
                 <h2 class="c-section-title">Works</h2>
                 <ul class="p-works__cards">
 
 
                     <li class="c-work-card" id="reform-btn">
-                        <h3 class="c-card-title">リカレント工務店</h3>
-                        <img class="c-works__img" src="image/reform-index.jpg" alt="リカレント工務店HPのトップページデザイン画像。">
+                        <h3 class="c-sub-title">リカレント工務店</h3>
+                        <img class="c-work-card__img" src="image/reform-index.jpg" alt="リカレント工務店HPのトップページデザイン画像。">
 
-                        <ul class="c-work__skills">
+                        <ul class="c-work-card__skills">
                             <li>HTML</li>
                             <li>CSS</li>
                             <li>JS</li>
@@ -77,10 +77,10 @@
                     </li>
 
                     <li class="c-work-card" id="mypage-btn">
-                        <h3 class="c-card-title">ポートフォリオサイト</h3>
-                        <img class="c-works__img" src="image/mypage.jpg" alt="ポートフォリオサイトのトップページデザイン画像。">
+                        <h3 class="c-sub-title">ポートフォリオサイト</h3>
+                        <img class="c-work-card__img" src="image/mypage.jpg" alt="ポートフォリオサイトのトップページデザイン画像。">
 
-                        <ul class="c-work__skills">
+                        <ul class="c-work-card__skills">
                             <li>HTML</li>
                             <li>CSS</li>
                             <li>JS</li>
@@ -89,9 +89,9 @@
                     </li>
 
                     <li class="c-work-card" id="gyoza-btn">
-                        <h3 class="c-card-title">ふくおか餃子フェス</h3>
-                        <img class="c-works__img" src="image/gyoza-top.jpg" alt="餃子フェスHPのトップページデザイン画像。">
-                        <ul class="c-work__skills">
+                        <h3 class="c-sub-title">ふくおか餃子フェス</h3>
+                        <img class="c-work-card__img" src="image/gyoza-top.jpg" alt="餃子フェスHPのトップページデザイン画像。">
+                        <ul class="c-work-card__skills">
                             <li>HTML</li>
                             <li>CSS</li>
                             <li>グループ制作</li>
@@ -101,24 +101,26 @@
             </div>
 
 
-            <dialog id="reform-dialog" class="l-dialog">
+            <dialog id="reform-dialog" class="l-dialog c-dialog">
                 <button id="reform-close" class="close"><span></span></button>
                 <p class="c-sub-title">リカレント工務店</p>
                 <p class="u-notosans">2026年1月～2月制作</p>
-                <ul class="u-notosans c-work__realize">
+                <ul class="u-notosans c-dialog__realize">
+                    <li>デザイン</li>
                     <li>レスポンシブ対応</li>
                     <li>ハンバーガーメニュー</li>
                     <li>動的描画</li>
+                    <li>フィルター機能</li>
                     <li>問い合わせフォーム</li>
                     <li>バリデーション</li>
                     <li>GitHub</li>
                 </ul>
-                <div class="c-works__link-area">
+                <div class="c-dialog__link-area">
                     <a href="https://okoba-git.github.io/reform/index.html" target="_blank"
-                        class="c-works__link-text">Go
+                        class="c-dialog__link-text">Go
                         page</a>
                     <a href="https://github.com/okoba-git/reform"><img src="image/github-icon.svg"
-                            class="c-works__link-img" alt=""></a>
+                            class="c-dialog__link-img" alt=""></a>
                 </div>
                 <p class="u-center-text u-notosans">『地域に寄り添う、親しみやすいリフォーム会社』をテーマに、デザインから実装まで一人で完成させた架空のコーポレートサイトです。</p>
             </dialog>
@@ -127,19 +129,20 @@
                 <button id="mypage-close" class="close"><span></span></button>
                 <p class="c-sub-title">ポートフォリオサイト</p>
                 <p class="u-notosans">2026年3月制作</p>
-                <ul class="u-center-text u-notosans c-work__realize">
+                <ul class="u-notosans c-dialog__realize">
+                    <li>デザイン</li>
                     <li>レスポンシブ対応</li>
                     <li>ハンバーガーメニュー</li>
                     <li>CSSアニメーション</li>
                     <li>モーダル</li>
                     <li>GitHub</li>
                 </ul>
-                <div class="c-works__link-area">
+                <div class="c-dialog__link-area">
                     <a href="https://okoba-git.github.io/portfolio/index.html" target="_blank"
-                        class="c-works__link-text">Go
+                        class="c-dialog__link-text">Go
                         page</a>
                     <a href="https://github.com/okoba-git/portfolio"><img src="image/github-icon.svg"
-                            class="c-works__link-img" alt=""></a>
+                            class="c-dialog__link-img" alt=""></a>
                 </div>
                 <p class="u-center-text u-notosans">初めてのポートフォリオサイトです。</p>
             </dialog>
@@ -148,7 +151,8 @@
                 <button id="gyoza-close" class="close"><span></span></button>
                 <p class="c-sub-title">ふくおか餃子フェス</p>
                 <p class="u-notosans">2025年12月～1月制作</p>
-                <ul class="u-center-text u-notosans c-work__realize">
+                <ul class="u-notosans c-dialog__realize">
+                    <li>デザイン</li>
                     <li>レスポンシブ対応</li>
                     <li>ハンバーガーメニュー</li>
                     <li>問い合わせフォーム</li>
@@ -163,11 +167,12 @@
                     <li>フッター（デザイン・コーディング）</li>
                     <li>その他</li>
                 </ul>
-                <div class="c-works__link-area">
-                    <a href="https://dwdw0421-blip.github.io/gyoza-fes_a/" class="c-works__link-text" target="_blank">Go
+                <div class="c-dialog__link-area">
+                    <a href="https://dwdw0421-blip.github.io/gyoza-fes_a/" class="c-dialog__link-text"
+                        target="_blank">Go
                         page</a>
                     <a href="https://github.com/dwdw0421-blip/gyoza-fes_a"><img src="image/github-icon.svg"
-                            class="c-works__link-img" alt=""></a>
+                            class="c-dialog__link-img" alt=""></a>
                 </div>
                 <p class="u-center-text u-notosans">授業で取り組んだグループ（３人）課題です。</p>
             </dialog>

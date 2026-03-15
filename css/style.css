@@ -4,8 +4,10 @@
     --port-pink: #FFD1DC;
     --port-orange: rgb(252, 211, 3, 0.7);
 
+    --space-s: 10px;
     --space-m: 20px;
     --space-l: 50px;
+    --space-xl: 80px;
 }
 
 html {
@@ -34,7 +36,7 @@ img {
 .l-container {
     display: flex;
     flex-direction: column;
-    gap: 100px;
+    gap: var(--space-xl);
     padding-block: 120px;
 }
 
@@ -60,11 +62,9 @@ img {
     display: inline-block;
     width: clamp(1.875rem, 1.435rem + 1.878vw, 3.125rem);
     height: clamp(1.875rem, 1.435rem + 1.878vw, 3.125rem);
-    filter: brightness(120%);
 }
 
-.c-sub-title::before,
-.c-card-title::before {
+.c-sub-title::before {
     content: '';
     background: url(../image/flower-orange.svg) center center/cover;
     display: inline-block;
@@ -75,20 +75,18 @@ img {
 
 /* 回転のアニメーション */
 .c-section-title::before,
-.c-sub-title::before,
-.c-card-title::before {
+.c-sub-title::before {
     animation: rotateAnime 10s linear infinite;
 }
 
 /* MainVisual */
-.c-mv {
+.p-mv {
     height: 550px;
     background: url(../image/mv.webp)no-repeat center right/cover;
     display: flex;
     flex-direction: column;
     /* ぼかしアニメーション */
     animation: blurAnime 1.0s ease-out;
-    /* position: relative; */
 }
 
 .p-name {
@@ -116,7 +114,8 @@ img {
 .c-gnav__li {
     font-size: clamp(1.875rem, 1.479rem + 1.69vw, 3rem);
     font-weight: bold;
-    padding: 10px 30px;
+    padding-block: var(--space-s);
+    padding-inline: var(--space-m);
     border-radius: 4px;
     transition: all 300ms ease-in;
 }
@@ -224,7 +223,7 @@ img {
 /* セクションの中の余白 */
 
 .l-about-section,
-.p-works-inner {
+.l-works-inner {
     display: flex;
     flex-direction: column;
     gap: var(--space-l);
@@ -273,7 +272,11 @@ img {
 /* Works */
 .p-works {
     background: var(--port-pink);
-    padding-block: var(--space-m);
+    padding-block: var(--space-l);
+}
+
+.p-works .c-sub-title {
+    font-size: 20px;
 }
 
 .p-works__cards {
@@ -284,11 +287,11 @@ img {
 }
 
 .c-work-card {
+    background: #ddd;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: var(--space-m);
-    background: #ddd;
     padding: var(--space-m);
     border-radius: 4px;
     filter: blur(2px);
@@ -301,20 +304,20 @@ img {
     filter: blur(0px);
 }
 
-.c-works__img {
+.c-work-card__img {
     width: 270px;
     height: 300px;
     object-fit: cover;
     object-position: top;
 }
 
-.c-work__skills {
+.c-work-card__skills {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: var(--space-s);
 }
 
-.c-work__skills li {
+.c-work-card__skills li {
     font-family: 'Noto Sans JP', sans-serif;
     background-color: var(--port-orange);
     padding: 4px 5px;
@@ -325,7 +328,7 @@ img {
 @media screen and (max-width: 768px) {
     .p-works__cards {
         flex-direction: column;
-        gap: 20px;
+        gap: var(--space-m);
         align-items: center;
     }
 
@@ -375,45 +378,48 @@ img {
     transform: rotate(90deg);
 }
 
-.c-works__link-area {
+.c-dialog__link-area {
     display: flex;
     align-items: center;
     gap: var(--space-m);
 }
 
-.c-works__link-img {
+.c-dialog__link-img {
     width: 30px;
 }
 
-.c-works__link-text {
+.c-dialog__link-text {
     background: var(--port-black);
     color: var(--port-white);
     display: block;
-    padding: 5px 10px;
+    padding: 5px var(--space-s);
     border-radius: 20px;
 }
 
 
-.c-works__link-text:hover,
-.c-works__link-img:hover {
+.c-dialog__link-text:hover,
+.c-dialog__link-img:hover {
     transition: all 300ms ease-out;
     filter: opacity(0.7);
 }
 
-.c-work__realize,
+.c-dialog__realize,
 .p-mytasks {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: var(--space-s);
 }
 
-.c-work__realize li,
+.c-dialog__realize li,
 .p-mytasks li {
     background-color: var(--port-pink);
     padding: 4px 5px;
     font-size: 16px;
 }
 
+.p-mytasks li {
+    font-size: 12px;
+}
 
 /* MSG */
 .p-msg-area {
