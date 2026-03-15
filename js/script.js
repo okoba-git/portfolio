@@ -45,12 +45,11 @@ const worksArray = [
         comment: '授業で取り組んだグループ（３人）課題です。'
     }]
 
-// Worksセクションを取得（ダイアログ描画エリア）
-const works = document.getElementById('works');
-// カード描画エリアの取得
+
+
+// カード描画エリアの取得（常に表示するもの）
 const cardArea = document.getElementById('work-card-area');
-
-
+// foreachで描画
 worksArray.forEach(work => {
     let cardHtml = '';
     cardHtml += `<li class="c-work-card" id="${work.name}-btn">
@@ -65,36 +64,47 @@ worksArray.forEach(work => {
 
 
 
-worksArray.forEach(work => {
-    // ダイアログタグの生成、クラス名・idの付与
-    let dialog = document.createElement('dialog');
-    dialog.setAttribute('id', `${work.name}-dialog`);
-    dialog.setAttribute('class', 'l-dialog c-dialog');
+
+// Worksセクションを取得（モーダル描画エリア）
+const works = document.getElementById('works');
 
 
-    // ダイアログタグの中身
-    let html = '';
-    html += `<button id="${work.name}-close" class="close"> <span></span></button>
-    <h3 class="c-sub-title">${work.title}</h3>
-    <p class="u-notosans">${work.date}</p>
- 
-<!--リアライズ項目の表示 -->
+// 描画するモーダルのインデックス番号
+let currentIndx = 0;
+
+// 該当のモーダルのHTMLを描画する関数
+function modalInner(n) {
+    let html = `<div class="c-dialog__icon-area"><button id="before-btn">←</button><button id="${n.name}-close" class="close"><span></span></button><button class="after-btn">→</button></div> <div class="c-dialog__title-area"><h3 class="c-sub-title">${n.title}</h3></div><p class="u-notosans">${n.date}</p>
+<!--実装したリアライズ項目の表示 -->
 <ul class="u-notosans c-dialog__realize">
-${work.realize.map(item => `<li>${item}</li>`).join('')}</ul>
+${n.realize.map(item => `<li>${item}</li>`).join('')}</ul>
+<!--オブジェクトにタスク項目（自分の担当）があれば表示(三項演算子) -->
+        ${n.task ? `<p>担当ページ</p><ul class="u-center-text u-notosans p-mytasks">${n.task.map(item => ` <li> ${item}</li>`).join('')}</ul>` : ''}
+<div class="c-dialog__link-area"><a href="${n.url}" target="_blank" class="c-dialog__link-text">Go page</a><a href="${n.git}"><img src="image/github-icon.svg" class="c-dialog__link-img" alt=""></a>
+</div><p class="u-center-text u-notosans">${n.comment}</p>`;
 
-<!--オブジェクトにタスク項目があれば表示(三項演算子) -->
-        ${work.task ? `<p>担当ページ</p><ul class="u-center-text u-notosans p-mytasks">${work.task.map(item => ` <li> ${item}</li>`).join('')}</ul>` : ''}
+    return html;
+}
 
-        <div class="c-dialog__link-area">
-        <a href="${work.url}" target="_blank" class="c-dialog__link-text">Go page</a>
-        <a href="${work.git}"><img src="image/github-icon.svg" class="c-dialog__link-img" alt=""></a>
-        </div>
-        <p class="u-center-text u-notosans">${work.comment}</p>`;
 
-    // ワークスにダイアログタグを追加
-    dialog.innerHTML = html;
-    works.insertBefore(dialog, null);
-})
+// // foreachですべてのモーダルを描画
+// worksArray.forEach(work => {
+//     // ダイアログタグの生成、クラス名・idの付与
+//     let dialog = document.createElement('dialog');
+//     dialog.setAttribute('id', `${work.name}-dialog`);
+//     dialog.setAttribute('class', 'l-dialog c-dialog');
+
+//     // ダイアログタグの中身
+//     let html = '';
+//     html += modalInner(work);
+
+//     // ワークスにダイアログタグを追加
+//     dialog.innerHTML = html;
+//     works.insertBefore(dialog, null);
+// })
+
+
+modalInner(worksArray[0]);
 
 
 
@@ -116,3 +126,10 @@ function modal(siteName) {
 // 関数実行
 worksArray.forEach(work => modal(work.name));
 
+
+const before = document.getElementById('before-btn');
+const after = document.getElementById('after-btn');
+
+before.addEventListener('click', () => {
+
+})

@@ -276,7 +276,7 @@ img {
 }
 
 .p-works .c-sub-title {
-    font-size: 20px;
+    font-size: 24px;
 }
 
 .p-works__cards {
@@ -353,9 +353,17 @@ img {
     /* position: relative; */
 }
 
+.c-dialog__icon-area {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 .close {
     position: relative;
-    left: 47%;
+    bottom: 10px;
+    /* left: 47%; */
     padding-block: var(--space-m);
 }
 
