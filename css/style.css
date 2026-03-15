@@ -56,16 +56,17 @@ img {
 /* 花のアイコン */
 .c-section-title::before {
     content: '';
-    background: url(../image/flower-orange.svg) center center/cover;
+    background: url(../image/flower-pink.png) center center/cover;
     display: inline-block;
     width: clamp(1.875rem, 1.435rem + 1.878vw, 3.125rem);
     height: clamp(1.875rem, 1.435rem + 1.878vw, 3.125rem);
+    filter: brightness(120%);
 }
 
 .c-sub-title::before,
 .c-card-title::before {
     content: '';
-    background: url(../image/flower-pink.png) center center/cover;
+    background: url(../image/flower-orange.svg) center center/cover;
     display: inline-block;
     width: 20px;
     height: 20px;
@@ -135,10 +136,10 @@ img {
 
     .c-humburger__icon {
         border-radius: 4px;
-        background-color: var(--port-orange);
+        background-color: var(--port-white);
         filter: opacity(0.9);
         /* クリックの範囲を広くする */
-        padding: 40px;
+        padding: 30px;
         /* 右上に固定 */
         position: fixed;
         right: 0;
@@ -182,7 +183,7 @@ img {
     }
 
     .active .c-humburger__span {
-        background-color: var(--port-orange);
+        background-color: var(--port-white);
     }
 
     .active .c-humburger__span::before {
@@ -197,7 +198,7 @@ img {
 
 
     .active .c-humburger__nav {
-        background-color: var(--port-orange);
+        background-color: var(--port-white);
         display: block;
         width: 40vw;
         height: 100vh;
@@ -252,7 +253,8 @@ img {
 }
 
 .p-skill-icon {
-    width: 50px;
+    width: clamp(3.125rem, 2.465rem + 2.817vw, 5rem);
+    /* width: 50px; */
     filter: saturate(10%);
 }
 
@@ -265,6 +267,7 @@ img {
     .p-skill-icon {
         filter: saturate(100%);
     }
+
 }
 
 /* Works */
@@ -348,10 +351,9 @@ img {
 }
 
 .close {
-    position: absolute;
-    padding: 20px;
-    right: 0;
-    top: 10px;
+    position: relative;
+    left: 47%;
+    padding-block: var(--space-m);
 }
 
 .close span {
