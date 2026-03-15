@@ -61,122 +61,15 @@
         <section class="p-works" id="works">
             <div class="l-wrapper l-works-inner">
                 <h2 class="c-section-title">Works</h2>
-                <ul class="p-works__cards">
 
 
-                    <li class="c-work-card" id="reform-btn">
-                        <h3 class="c-sub-title">リカレント工務店</h3>
-                        <img class="c-work-card__img" src="image/reform-index.jpg" alt="リカレント工務店HPのトップページデザイン画像。">
+                <ul class="p-works__cards" id="work-card-area">
+                    <!-- JSにて描画（作品の基本情報） -->
 
-                        <ul class="c-work-card__skills">
-                            <li>HTML</li>
-                            <li>CSS</li>
-                            <li>JS</li>
-                            <li>個人制作</li>
-                        </ul>
-                    </li>
-
-                    <li class="c-work-card" id="mypage-btn">
-                        <h3 class="c-sub-title">ポートフォリオサイト</h3>
-                        <img class="c-work-card__img" src="image/mypage.jpg" alt="ポートフォリオサイトのトップページデザイン画像。">
-
-                        <ul class="c-work-card__skills">
-                            <li>HTML</li>
-                            <li>CSS</li>
-                            <li>JS</li>
-                            <li>個人制作</li>
-                        </ul>
-                    </li>
-
-                    <li class="c-work-card" id="gyoza-btn">
-                        <h3 class="c-sub-title">ふくおか餃子フェス</h3>
-                        <img class="c-work-card__img" src="image/gyoza-top.jpg" alt="餃子フェスHPのトップページデザイン画像。">
-                        <ul class="c-work-card__skills">
-                            <li>HTML</li>
-                            <li>CSS</li>
-                            <li>グループ制作</li>
-                        </ul>
-                    </li>
                 </ul>
             </div>
 
-
-            <dialog id="reform-dialog" class="l-dialog c-dialog">
-                <button id="reform-close" class="close"><span></span></button>
-                <p class="c-sub-title">リカレント工務店</p>
-                <p class="u-notosans">2026年1月～2月制作</p>
-                <ul class="u-notosans c-dialog__realize">
-                    <li>デザイン</li>
-                    <li>レスポンシブ対応</li>
-                    <li>ハンバーガーメニュー</li>
-                    <li>動的描画</li>
-                    <li>フィルター機能</li>
-                    <li>問い合わせフォーム</li>
-                    <li>バリデーション</li>
-                    <li>GitHub</li>
-                </ul>
-                <div class="c-dialog__link-area">
-                    <a href="https://okoba-git.github.io/reform/index.html" target="_blank"
-                        class="c-dialog__link-text">Go
-                        page</a>
-                    <a href="https://github.com/okoba-git/reform"><img src="image/github-icon.svg"
-                            class="c-dialog__link-img" alt=""></a>
-                </div>
-                <p class="u-center-text u-notosans">『地域に寄り添う、親しみやすいリフォーム会社』をテーマに、デザインから実装まで一人で完成させた架空のコーポレートサイトです。</p>
-            </dialog>
-
-            <dialog id="mypage-dialog" class="l-dialog">
-                <button id="mypage-close" class="close"><span></span></button>
-                <p class="c-sub-title">ポートフォリオサイト</p>
-                <p class="u-notosans">2026年3月制作</p>
-                <ul class="u-notosans c-dialog__realize">
-                    <li>デザイン</li>
-                    <li>レスポンシブ対応</li>
-                    <li>ハンバーガーメニュー</li>
-                    <li>CSSアニメーション</li>
-                    <li>モーダル</li>
-                    <li>GitHub</li>
-                </ul>
-                <div class="c-dialog__link-area">
-                    <a href="https://okoba-git.github.io/portfolio/index.html" target="_blank"
-                        class="c-dialog__link-text">Go
-                        page</a>
-                    <a href="https://github.com/okoba-git/portfolio"><img src="image/github-icon.svg"
-                            class="c-dialog__link-img" alt=""></a>
-                </div>
-                <p class="u-center-text u-notosans">初めてのポートフォリオサイトです。</p>
-            </dialog>
-
-            <dialog id="gyoza-dialog" class="l-dialog">
-                <button id="gyoza-close" class="close"><span></span></button>
-                <p class="c-sub-title">ふくおか餃子フェス</p>
-                <p class="u-notosans">2025年12月～1月制作</p>
-                <ul class="u-notosans c-dialog__realize">
-                    <li>デザイン</li>
-                    <li>レスポンシブ対応</li>
-                    <li>ハンバーガーメニュー</li>
-                    <li>問い合わせフォーム</li>
-                    <li>GitHub</li>
-                </ul>
-                <p>担当ページ</p>
-                <ul class="u-center-text u-notosans p-mytasks">
-                    <li>トップページ下部（コーディング）</li>
-                    <li>NEWS（コーディング）</li>
-                    <li>CONTACT（デザイン・コーディング）</li>
-                    <li>FAQ（デザイン）</li>
-                    <li>フッター（デザイン・コーディング）</li>
-                    <li>その他</li>
-                </ul>
-                <div class="c-dialog__link-area">
-                    <a href="https://dwdw0421-blip.github.io/gyoza-fes_a/" class="c-dialog__link-text"
-                        target="_blank">Go
-                        page</a>
-                    <a href="https://github.com/dwdw0421-blip/gyoza-fes_a"><img src="image/github-icon.svg"
-                            class="c-dialog__link-img" alt=""></a>
-                </div>
-                <p class="u-center-text u-notosans">授業で取り組んだグループ（３人）課題です。</p>
-            </dialog>
-
+            <!-- JSにて描画(モーダル) -->
         </section>
 
 
