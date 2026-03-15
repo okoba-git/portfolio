@@ -6,6 +6,8 @@ humbugerBtn.addEventListener('click', () => {
     humbugerBtn.classList.toggle("active");
 })
 
+// モーダル
+
 
 // モーダルに必要な要素取得
 const reformBtn = document.getElementById('reform-btn');
@@ -22,30 +24,17 @@ const gyozaDialog = document.getElementById('gyoza-dialog');
 const gyozaClose = document.getElementById('gyoza-close');
 
 
+// モーダル開閉する関数
 
-// モーダル開ける
-reformBtn.addEventListener('click', () => {
-    reformDialog.showModal();
-})
+function modal(btn, dialog, close) {
+    btn.addEventListener('click', () => {
+        dialog.showModal();
+    })
+    close.addEventListener('click', () => {
+        dialog.close();
+    })
+}
 
-mypageBtn.addEventListener('click', () => {
-    mypageDialog.showModal();
-})
-
-
-gyozaBtn.addEventListener('click', () => {
-    gyozaDialog.showModal();
-})
-
-
-// モーダル閉じる
-reformClose.addEventListener('click', () => {
-    reformDialog.close();
-})
-mypageClose.addEventListener('click', () => {
-    mypageDialog.close();
-})
-
-gyozaClose.addEventListener('click', () => {
-    gyozaDialog.close();
-})
+modal(reformBtn, reformDialog, reformClose);
+modal(mypageBtn, mypageDialog, mypageClose);
+modal(gyozaBtn, gyozaDialog, gyozaClose);
