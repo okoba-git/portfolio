@@ -84,6 +84,8 @@ img {
     height: 550px;
     background: url(../image/mv.webp)no-repeat center right/cover;
     display: flex;
+    justify-content: center;
+    align-items: center;
     flex-direction: column;
     /* ぼかしアニメーション */
     animation: blurAnime 1.0s ease-out;
@@ -92,7 +94,6 @@ img {
 .p-name {
     font-size: clamp(4rem, 3.648rem + 1.502vw, 5rem);
     padding: 80px 40px;
-    align-self: flex-end;
 }
 
 /* navigation */
@@ -294,14 +295,12 @@ img {
     gap: var(--space-m);
     padding: var(--space-m);
     border-radius: 4px;
-    filter: blur(2px);
 }
 
 .c-work-card:hover {
     transition: all 200ms ease-out;
     transform: scale(1.04);
     border: 1px solid var(--port-black);
-    filter: blur(0px);
 }
 
 .c-work-card__img {
@@ -335,7 +334,6 @@ img {
     .c-work-card {
         transform: scale(1.00);
         border: 1px solid var(--port-black);
-        filter: blur(0px);
     }
 
 }
@@ -348,7 +346,7 @@ img {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: var(--space-m);
+    gap: var(--space-l);
     padding-block: var(--space-l);
     /* position: relative; */
 }
@@ -363,7 +361,6 @@ img {
 .close {
     position: relative;
     bottom: 10px;
-    /* left: 47%; */
     padding-block: var(--space-m);
 }
 
@@ -384,6 +381,26 @@ img {
     position: absolute;
     content: '';
     transform: rotate(90deg);
+}
+
+.c-dialog__top-area {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.c-dialog__top-area--text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+
+.c-dialog__img {
+    width: 40%;
+    height: 200px;
+    object-fit: cover;
+    object-position: top;
 }
 
 .c-dialog__link-area {

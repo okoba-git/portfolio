@@ -16,24 +16,25 @@
 
 <body>
     <header id="top">
-        <div class="p-mv">
-            <div class="c-humburger" id="humburger-btn">
-                <div class="c-humburger__icon">
-                    <span class="c-humburger__span"></span>
-                </div>
-                <ul class="c-humburger__nav">
-                    <li class="c-gnav__li"><a href="index.html">Top</a></li>
-                    <li class="c-gnav__li"><a href="#about">About</a></li>
-                    <li class="c-gnav__li"><a href="#works">Works</a></li>
-                </ul>
+
+        <div class="c-humburger" id="humburger-btn">
+            <div class="c-humburger__icon">
+                <span class="c-humburger__span"></span>
             </div>
-            <nav class="c-header">
-                <ul class="l-gnav l-wrapper">
-                    <li class="c-gnav__li"><a href="index.html">Top</a></li>
-                    <li class="c-gnav__li"><a href="#about">About</a></li>
-                    <li class="c-gnav__li"><a href="#works">Works</a></li>
-                </ul>
-            </nav>
+            <ul class="c-humburger__nav">
+                <li class="c-gnav__li"><a href="index.html">Top</a></li>
+                <li class="c-gnav__li"><a href="#about">About</a></li>
+                <li class="c-gnav__li"><a href="#works">Works</a></li>
+            </ul>
+        </div>
+        <nav class="c-header">
+            <ul class="l-gnav l-wrapper">
+                <li class="c-gnav__li"><a href="index.html">Top</a></li>
+                <li class="c-gnav__li"><a href="#about">About</a></li>
+                <li class="c-gnav__li"><a href="#works">Works</a></li>
+            </ul>
+        </nav>
+        <div class="p-mv">
             <h1 class="p-name">SAWA</h1>
         </div>
     </header>
@@ -68,8 +69,13 @@
 
                 </ul>
             </div>
-
-            <!-- JSにて描画(モーダル) -->
+            <dialog class="l-dialog c-dialog" id="dialog">
+                <div class="c-dialog__icon-area">
+                    <button class="before-btn">←</button><button class="close" id="close"><span></span></button>
+                    <button class="after-btn">→</button>
+                </div>
+                <div id="dialog-write-area"><!-- JSにて描画(モーダル) --></div>
+            </dialog>
         </section>
 
 

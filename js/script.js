@@ -11,6 +11,7 @@ humbugerBtn.addEventListener('click', () => {
 
 const worksArray = [
     {
+        num: 0,
         title: 'リカレント工務店',
         name: 'reform',
         date: '2026年1月～2月制作',
@@ -22,6 +23,7 @@ const worksArray = [
         comment: '『地域に寄り添う、親しみやすいリフォーム会社』をテーマに、デザインから実装まで一人で完成させた架空のコーポレートサイトです。'
     },
     {
+        num: 1,
         title: 'ポートフォリオ',
         name: 'mypage',
         date: '2026年3月制作',
@@ -33,6 +35,7 @@ const worksArray = [
         comment: '初めてのポートフォリオサイトです。'
     },
     {
+        num: 2,
         title: '社員管理システム',
         name: 'employees',
         date: '2026年2月制作',
@@ -44,6 +47,7 @@ const worksArray = [
         comment: '学校のJavaScript試験での制作課題です。HTML・CSSは完成されており、配列管理された情報をJSにて表示させました。'
     },
     {
+        num: 3,
         title: 'ふくおか餃子FES',
         name: 'gyoza',
         date: '2025年12月～1月制作',
@@ -55,6 +59,7 @@ const worksArray = [
         skill: ['HTML', 'CSS', 'チーム制作'],
         comment: '授業で取り組んだグループ（３人）課題です。'
     }, {
+        num: 4,
         title: 'Go Out Gear',
         name: 'go',
         date: '2025年11月制作',
@@ -73,7 +78,7 @@ const cardArea = document.getElementById('work-card-area');
 // foreachで描画
 worksArray.forEach(work => {
     let cardHtml = '';
-    cardHtml += `<li class="c-work-card" id="${work.name}-btn">
+    cardHtml += `<li class="c-work-card" id="${work.name}-card">
                         <h3 class="c-sub-title u-notosans">${work.title}</h3>
                         <img class="c-work-card__img" src="../image/${work.img}" alt="${work.title}HPのトップページデザイン画像。">
                         <ul class="c-work-card__skills">    
@@ -84,18 +89,22 @@ worksArray.forEach(work => {
 })
 
 
-
-
 // Worksセクションを取得（モーダル描画エリア）
-const works = document.getElementById('works');
+const dialogWriteArea = document.getElementById('dialog-write-area');
+
+// 各要素取得
+// 開閉時に使う
+const dialog = document.getElementById('dialog');
+// close取得
+const close = document.getElementById('close');
+// 矢印の要素取得
+let before = document.querySelector('.before-btn');
+let after = document.querySelector('.after-btn');
 
 
-// 描画するモーダルのインデックス番号
-let currentIndx = 0;
-
-// 該当のモーダルのHTMLを描画する関数
+// 該当のモーダルのHTML(dialogの中身)
 function modalInner(n) {
-    let html = `<div class="c-dialog__icon-area"><button id="before-btn">←</button><button id="${n.name}-close" class="close"><span></span></button><button class="after-btn">→</button></div> <div class="c-dialog__top-area"><div class="c-dialog__top-area--text"><h3 class="c-sub-title u-notosans">${n.title}</h3>
+    let html = `<div class="c-dialog__top-area"><div class="c-dialog__top-area--text"><h3 class="c-sub-title u-notosans">${n.title}</h3>
     <p class="u-notosans">${n.date}</p></div>
     <img class="c-dialog__img" src="../image/${n.img}" alt="${n.title}HPのトップページデザイン画像。"></div>
 <!--実装したリアライズ項目の表示 -->
@@ -109,50 +118,64 @@ ${n.realize.map(item => `<li>${item}</li>`).join('')}</ul>
     return html;
 }
 
+// 今見ているモーダルのインデックス番号を管理する
+let currentIndex = 0;
 
-// foreachですべてのモーダルを描画
-worksArray.forEach(work => {
-    // ダイアログタグの生成、クラス名・idの付与
-    let dialog = document.createElement('dialog');
-    dialog.setAttribute('id', `${work.name}-dialog`);
-    dialog.setAttribute('class', 'l-dialog c-dialog');
-
-    // ダイアログタグの中身
-    let html = '';
-    html += modalInner(work);
-
-    // ワークスにダイアログタグを追加
-    dialog.innerHTML = html;
-    works.insertBefore(dialog, null);
-})
-
-
-modalInner(worksArray[0]);
-
-
-
-// モーダル開閉する関数
-function modal(siteName) {
-    // 必要なIDを取得
-    const btn = document.getElementById(`${siteName}-btn`);
-    const dialog = document.getElementById(`${siteName}-dialog`);
-    const close = document.getElementById(`${siteName}-close`);
-    // モーダル開閉
-    btn.addEventListener('click', () => {
-        dialog.showModal();
-    })
-    close.addEventListener('click', () => {
-        dialog.close();
-    })
+// ダイアログタグの中身を作る関数
+function writeModal(indexNum) {
+    currentIndex = indexNum
+    // 中身
+    let html = modalInner(worksArray[indexNum]);
+    // モーダル描画エリアworksにダイアログタグを追加
+    dialogWriteArea.innerHTML = html;
 }
 
-// 関数実行
-worksArray.forEach(work => modal(work.name));
+
+// カードのIDを取得
+// ID名だけの配列を生成
+let worksIdArray = worksArray.map(e => {
+    return `${e.name}-card`;
+});
+// 実際に取得
+let cardId = worksIdArray.map(id => {
+    return document.getElementById(`${id}`);
+})
 
 
-const before = document.getElementById('before-btn');
-const after = document.getElementById('after-btn');
+// カードをクリック
+cardId.forEach((e, index) => {
+    e.addEventListener('click', () => {
+        // モーダルを開く
+        dialog.showModal();
+        // 開いたモーダルの中身を書く
+        writeModal(index);
+    })
+});
 
+// モーダルを閉じる
+close.addEventListener('click', () => {
+    dialog.close();
+})
+
+// 矢印の操作
 before.addEventListener('click', () => {
+    currentIndex += 1;
+    writeModal(currentIndex);
+    if (currentIndex === 5) {
+        writeModal(-1)
+    }
+})
+
+after.addEventListener('click', () => {
+    if (currentIndex > 0 || currentIndex < 5) {
+        currentIndex -= 1;
+        writeModal(currentIndex);
+    } else {
+        currentIndex = 4
+        writeModal(4);
+    }
 
 })
+
+
+
