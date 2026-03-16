@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&family=Poiret+One&display=swap"
         rel="stylesheet">
-    <link rel=“icon” href="favicon.ico" type=“image/x-icon”>
+    <link rel=“icon” href="favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
@@ -71,10 +71,10 @@
             </div>
             <dialog class="l-dialog c-dialog" id="dialog">
                 <div class="c-dialog__icon-area">
-                    <button class="before-btn">←</button><button class="close" id="close"><span></span></button>
-                    <button class="after-btn">→</button>
+                    <button class="before-btn c-arrow">←</button><button class="close" id="close"><span></span></button>
+                    <button class="after-btn c-arrow">→</button>
                 </div>
-                <div id="dialog-write-area"><!-- JSにて描画(モーダル) --></div>
+                <div id="dialog-write-area" class="c-dialog__js-area"><!-- JSにて描画(モーダル) --></div>
             </dialog>
         </section>
 

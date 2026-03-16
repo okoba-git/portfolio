@@ -16,10 +16,10 @@ const worksArray = [
         name: 'reform',
         date: '2026年1月～2月制作',
         img: 'reform-index.jpg',
-        realize: ['デザイン', 'レスポンシブ対応', 'ハンバーガーメニュー', '動的描画', 'フィルター機能', '問い合わせフォーム', 'バリデーション', 'Git管理'],
+        realize: ['デザイン', 'レスポンシブ対応', 'ハンバーガーメニュー', 'フィルター機能', '問い合わせフォーム', 'バリデーション', 'Git管理', 'AI活用'],
         url: 'https://okoba-git.github.io/reform/index.html',
         git: 'https://github.com/okoba-git/reform',
-        skill: ['HTML', 'CSS', 'JS', '個人制作', '動的'],
+        skill: ['HTML', 'CSS', 'JS', '個人制作', '動的表示'],
         comment: '『地域に寄り添う、親しみやすいリフォーム会社』をテーマに、デザインから実装まで一人で完成させた架空のコーポレートサイトです。'
     },
     {
@@ -28,22 +28,22 @@ const worksArray = [
         name: 'mypage',
         date: '2026年3月制作',
         img: 'mypage.jpg',
-        realize: ['デザイン', 'レスポンシブ対応', 'ハンバーガーメニュー', '動的描画', 'CSSアニメーション', 'モーダル', 'Git管理'],
+        realize: ['デザイン', 'レスポンシブ対応', 'ハンバーガーメニュー', 'CSSアニメーション', 'モーダル', 'Git管理'],
         url: 'https://okoba-git.github.io/portfolio/index.html',
         git: 'https://github.com/okoba-git/portfolio',
-        skill: ['HTML', 'CSS', 'JS', '個人制作', '動的'],
-        comment: '初めてのポートフォリオサイトです。'
+        skill: ['HTML', 'CSS', 'JS', '個人制作', '動的表示'],
+        comment: '初めての自身のポートフォリオサイトです。'
     },
     {
         num: 2,
-        title: '社員管理システム',
+        title: '社員情報一覧',
         name: 'employees',
         date: '2026年2月制作',
         img: 'noimage.jpg',
         realize: ['配列管理', 'フィルター機能', 'モーダル'],
         url: 'https://okoba-git.github.io/emproyees/',
         git: 'https://github.com/okoba-git/emproyees',
-        skill: ['JS', '学校課題', '動的'],
+        skill: ['JS', '学校課題', '動的表示'],
         comment: '学校のJavaScript試験での制作課題です。HTML・CSSは完成されており、配列管理された情報をJSにて表示させました。'
     },
     {
@@ -80,10 +80,10 @@ worksArray.forEach(work => {
     let cardHtml = '';
     cardHtml += `<li class="c-work-card" id="${work.name}-card">
                         <h3 class="c-sub-title u-notosans">${work.title}</h3>
-                        <img class="c-work-card__img" src="../image/${work.img}" alt="${work.title}HPのトップページデザイン画像。">
-                        <ul class="c-work-card__skills">    
+                        <img class="c-work-card__img" src="image/${work.img}" alt="${work.title}HPのトップページデザイン画像。">
+                        <ul class="c-work__skills">    
                         ${work.skill.map(item => `<li>${item}</li>`).join('')} 
-                        </ul >
+                        </ul>
                     </li > `;
     cardArea.insertAdjacentHTML('beforeend', cardHtml);
 })
@@ -106,13 +106,14 @@ let after = document.querySelector('.after-btn');
 function modalInner(n) {
     let html = `<div class="c-dialog__top-area"><div class="c-dialog__top-area--text"><h3 class="c-sub-title u-notosans">${n.title}</h3>
     <p class="u-notosans">${n.date}</p></div>
-    <img class="c-dialog__img" src="../image/${n.img}" alt="${n.title}HPのトップページデザイン画像。"></div>
-<!--実装したリアライズ項目の表示 -->
+    <img class="c-dialog__img" src="image/${n.img}" alt="${n.title}HPのトップページデザイン画像。"></div>
+<ul class="c-work__skills">    
+${n.skill.map(item => `<li>${item}</li>`).join('')} </ul>
 <ul class="u-notosans c-dialog__realize">
 ${n.realize.map(item => `<li>${item}</li>`).join('')}</ul>
 <!--オブジェクトにタスク項目（自分の担当）があれば表示(三項演算子) -->
         ${n.task ? `<p>担当ページ</p><ul class="u-center-text u-notosans p-mytasks">${n.task.map(item => ` <li> ${item}</li>`).join('')}</ul>` : ''}
-<div class="c-dialog__link-area"><a href="${n.url}" target="_blank" class="c-dialog__link-text">Go page</a><a href="${n.git}"><img src="image/github-icon.svg" class="c-dialog__link-img" alt=""></a>
+<div class="c-dialog__link-area"><a href="${n.url}" target="_blank" class="c-dialog__link-text">Go page</a><a href="${n.git}" target="_blank"><img src="image/github-icon.svg" class="c-dialog__link-img" alt=""></a>
 </div><p class="u-center-text u-notosans">${n.comment}</p>`;
 
     return html;
@@ -159,20 +160,23 @@ close.addEventListener('click', () => {
 
 // 矢印の操作
 before.addEventListener('click', () => {
-    currentIndex += 1;
-    writeModal(currentIndex);
-    if (currentIndex === 5) {
-        writeModal(-1)
-    }
-})
-
-after.addEventListener('click', () => {
-    if (currentIndex > 0 || currentIndex < 5) {
+    if (currentIndex >= 0 && currentIndex < worksArray.length) {
         currentIndex -= 1;
         writeModal(currentIndex);
     } else {
-        currentIndex = 4
-        writeModal(4);
+        currentIndex = (worksArray.length - 1)
+        writeModal(worksArray.length - 1);
+    }
+
+})
+
+after.addEventListener('click', () => {
+    if (currentIndex >= 0 && currentIndex < worksArray.length) {
+        currentIndex += 1;
+        writeModal(currentIndex);
+    } else {
+        currentIndex = 0
+        writeModal(0);
     }
 
 })

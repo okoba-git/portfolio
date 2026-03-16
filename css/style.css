@@ -310,13 +310,13 @@ img {
     object-position: top;
 }
 
-.c-work-card__skills {
+.c-work__skills {
     display: flex;
     flex-wrap: wrap;
     gap: var(--space-s);
 }
 
-.c-work-card__skills li {
+.c-work__skills li {
     font-family: 'Noto Sans JP', sans-serif;
     background-color: var(--port-orange);
     padding: 4px 5px;
@@ -342,26 +342,45 @@ img {
 /* ダイアログ */
 .l-dialog:modal {
     width: min(80%, 700px);
-    background-color: var(--port-white);
+    background-color: #ddd;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: var(--space-l);
     padding-block: var(--space-l);
-    /* position: relative; */
 }
 
 .c-dialog__icon-area {
     width: 100%;
     display: flex;
     justify-content: space-between;
-    align-items: center;
+}
+
+.c-arrow {
+    padding: var(--space-s);
+    border: 1px solid var(--port-black);
+    border-radius: 50%;
+}
+
+
+.c-arrow:hover {
+    background-color: var(--port-pink);
+    transition: all 300ms ease-out;
+    filter: saturate(200%);
 }
 
 .close {
     position: relative;
     bottom: 10px;
     padding-block: var(--space-m);
+    border-radius: 50%;
+}
+
+.close:hover,
+.c-dialog__link-text:hover,
+.c-dialog__link-img:hover {
+    background: var(--port-pink);
+
 }
 
 .close span {
@@ -381,6 +400,13 @@ img {
     position: absolute;
     content: '';
     transform: rotate(90deg);
+}
+
+.c-dialog__js-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-m);
 }
 
 .c-dialog__top-area {
@@ -410,23 +436,19 @@ img {
 }
 
 .c-dialog__link-img {
-    width: 30px;
+    width: 50px;
+    border-radius: 50%;
 }
 
 .c-dialog__link-text {
-    background: var(--port-black);
-    color: var(--port-white);
+    font-size: 30px;
+    font-weight: bold;
+    border: 2px solid var(--port-black);
     display: block;
     padding: 5px var(--space-s);
-    border-radius: 20px;
+    border-radius: 30px;
 }
 
-
-.c-dialog__link-text:hover,
-.c-dialog__link-img:hover {
-    transition: all 300ms ease-out;
-    filter: opacity(0.7);
-}
 
 .c-dialog__realize,
 .p-mytasks {
