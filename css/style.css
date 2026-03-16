@@ -313,7 +313,7 @@ img {
 .c-work__skills {
     display: flex;
     flex-wrap: wrap;
-    gap: var(--space-s);
+    column-gap: var(--space-s);
 }
 
 .c-work__skills li {
@@ -362,25 +362,18 @@ img {
     border-radius: 50%;
 }
 
-
-.c-arrow:hover {
-    background-color: var(--port-pink);
-    transition: all 300ms ease-out;
-    filter: saturate(200%);
-}
-
-.close {
-    position: relative;
-    bottom: 10px;
-    padding-block: var(--space-m);
-    border-radius: 50%;
-}
-
+.c-arrow:hover,
 .close:hover,
 .c-dialog__link-text:hover,
 .c-dialog__link-img:hover {
-    background: var(--port-pink);
+    background-color: var(--port-pink);
+    transition: all 300ms ease-out;
+}
 
+.close {
+    padding-block: var(--space-m);
+    border-radius: 10px;
+    border: 1px solid var(--port-black);
 }
 
 .close span {
@@ -419,6 +412,7 @@ img {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
+    gap: var(--space-m);
 }
 
 
@@ -438,17 +432,17 @@ img {
 .c-dialog__link-img {
     width: 50px;
     border-radius: 50%;
+    border: 1px solid var(--port-black);
 }
 
 .c-dialog__link-text {
     font-size: 30px;
     font-weight: bold;
-    border: 2px solid var(--port-black);
+    border: 1px solid var(--port-black);
     display: block;
     padding: 5px var(--space-s);
     border-radius: 30px;
 }
-
 
 .c-dialog__realize,
 .p-mytasks {

@@ -1,5 +1,12 @@
+// IDを取得する関数
+function getID(idName) {
+    return document.getElementById(idName);
+}
+
+
+
 // ハンバーガーメニュー
-const humbugerBtn = document.getElementById('humburger-btn');
+const humbugerBtn = getID('humburger-btn');
 
 humbugerBtn.addEventListener('click', () => {
     humbugerBtn.classList.toggle("active");
@@ -16,7 +23,7 @@ const worksArray = [
         name: 'reform',
         date: '2026年1月～2月制作',
         img: 'reform-index.jpg',
-        realize: ['デザイン', 'レスポンシブ対応', 'ハンバーガーメニュー', 'フィルター機能', '問い合わせフォーム', 'バリデーション', 'Git管理', 'AI活用'],
+        realize: ['デザイン', 'レスポンシブ対応', 'ハンバーガーメニュー', 'フィルター機能', '問い合わせフォーム', 'バリデーション', 'Git管理', 'AI活用', 'BEM命名規則'],
         url: 'https://okoba-git.github.io/reform/index.html',
         git: 'https://github.com/okoba-git/reform',
         skill: ['HTML', 'CSS', 'JS', '個人制作', '動的表示'],
@@ -28,7 +35,7 @@ const worksArray = [
         name: 'mypage',
         date: '2026年3月制作',
         img: 'mypage.jpg',
-        realize: ['デザイン', 'レスポンシブ対応', 'ハンバーガーメニュー', 'CSSアニメーション', 'モーダル', 'Git管理'],
+        realize: ['デザイン', 'レスポンシブ対応', 'ハンバーガーメニュー', 'CSSアニメーション', 'モーダル', 'Git管理', 'BEM命名規則'],
         url: 'https://okoba-git.github.io/portfolio/index.html',
         git: 'https://github.com/okoba-git/portfolio',
         skill: ['HTML', 'CSS', 'JS', '個人制作', '動的表示'],
@@ -52,7 +59,7 @@ const worksArray = [
         name: 'gyoza',
         date: '2025年12月～1月制作',
         img: 'gyoza-top.jpg',
-        realize: ['デザイン', 'レスポンシブ対応', 'ハンバーガーメニュー', '問い合わせフォーム', 'Git管理'],
+        realize: ['デザイン', 'レスポンシブ対応', 'ハンバーガーメニュー', '問い合わせフォーム', 'Git管理', 'BEM命名規則'],
         task: ['トップページ下部（コーディング）', 'NEWS（コーディング）', 'CONTACT（デザイン・コーディング）', 'FAQ（デザイン）', 'フッター（デザイン・コーディング）', 'その他'],
         url: 'https://dwdw0421-blip.github.io/gyoza-fes_a/',
         git: 'https://github.com/dwdw0421-blip/gyoza-fes_a',
@@ -74,7 +81,7 @@ const worksArray = [
 
 
 // カード描画エリアの取得（常に表示するもの）
-const cardArea = document.getElementById('work-card-area');
+const cardArea = getID('work-card-area');
 // foreachで描画
 worksArray.forEach(work => {
     let cardHtml = '';
@@ -90,13 +97,13 @@ worksArray.forEach(work => {
 
 
 // Worksセクションを取得（モーダル描画エリア）
-const dialogWriteArea = document.getElementById('dialog-write-area');
+const dialogWriteArea = getID('dialog-write-area');
 
 // 各要素取得
 // 開閉時に使う
-const dialog = document.getElementById('dialog');
+const dialog = getID('dialog');
 // close取得
-const close = document.getElementById('close');
+const close = getID('close');
 // 矢印の要素取得
 let before = document.querySelector('.before-btn');
 let after = document.querySelector('.after-btn');
@@ -111,7 +118,7 @@ function modalInner(n) {
 ${n.skill.map(item => `<li>${item}</li>`).join('')} </ul>
 <ul class="u-notosans c-dialog__realize">
 ${n.realize.map(item => `<li>${item}</li>`).join('')}</ul>
-<!--オブジェクトにタスク項目（自分の担当）があれば表示(三項演算子) -->
+<!--タスク項目があれば表示(三項演算子) -->
         ${n.task ? `<p>担当ページ</p><ul class="u-center-text u-notosans p-mytasks">${n.task.map(item => ` <li> ${item}</li>`).join('')}</ul>` : ''}
 <div class="c-dialog__link-area"><a href="${n.url}" target="_blank" class="c-dialog__link-text">Go page</a><a href="${n.git}" target="_blank"><img src="image/github-icon.svg" class="c-dialog__link-img" alt=""></a>
 </div><p class="u-center-text u-notosans">${n.comment}</p>`;
@@ -139,7 +146,7 @@ let worksIdArray = worksArray.map(e => {
 });
 // 実際に取得
 let cardId = worksIdArray.map(id => {
-    return document.getElementById(`${id}`);
+    return getID(`${id}`);
 })
 
 
@@ -167,7 +174,6 @@ before.addEventListener('click', () => {
         currentIndex = (worksArray.length - 1)
         writeModal(worksArray.length - 1);
     }
-
 })
 
 after.addEventListener('click', () => {
@@ -178,7 +184,6 @@ after.addEventListener('click', () => {
         currentIndex = 0
         writeModal(0);
     }
-
 })
 
 
