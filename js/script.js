@@ -15,10 +15,10 @@ const worksArray = [
         name: 'reform',
         date: '2026年1月～2月制作',
         img: 'reform-index.jpg',
-        realize: ['デザイン', 'レスポンシブ対応', 'ハンバーガーメニュー', '動的描画', 'フィルター機能', '問い合わせフォーム', 'バリデーション', 'GitHub'],
+        realize: ['デザイン', 'レスポンシブ対応', 'ハンバーガーメニュー', '動的描画', 'フィルター機能', '問い合わせフォーム', 'バリデーション', 'Git管理'],
         url: 'https://okoba-git.github.io/reform/index.html',
         git: 'https://github.com/okoba-git/reform',
-        skill: ['HTML', 'CSS', 'JS', '個人制作'],
+        skill: ['HTML', 'CSS', 'JS', '個人制作', '動的'],
         comment: '『地域に寄り添う、親しみやすいリフォーム会社』をテーマに、デザインから実装まで一人で完成させた架空のコーポレートサイトです。'
     },
     {
@@ -26,23 +26,44 @@ const worksArray = [
         name: 'mypage',
         date: '2026年3月制作',
         img: 'mypage.jpg',
-        realize: ['デザイン', 'レスポンシブ対応', 'ハンバーガーメニュー', '動的描画', 'CSSアニメーション', 'モーダル', 'GitHub'],
+        realize: ['デザイン', 'レスポンシブ対応', 'ハンバーガーメニュー', '動的描画', 'CSSアニメーション', 'モーダル', 'Git管理'],
         url: 'https://okoba-git.github.io/portfolio/index.html',
         git: 'https://github.com/okoba-git/portfolio',
-        skill: ['HTML', 'CSS', 'JS', '個人制作'],
+        skill: ['HTML', 'CSS', 'JS', '個人制作', '動的'],
         comment: '初めてのポートフォリオサイトです。'
     },
     {
-        title: 'ふくおか餃子フェス',
+        title: '社員管理システム',
+        name: 'employees',
+        date: '2026年2月制作',
+        img: 'noimage.jpg',
+        realize: ['配列管理', 'フィルター機能', 'モーダル'],
+        url: 'https://okoba-git.github.io/emproyees/',
+        git: 'https://github.com/okoba-git/emproyees',
+        skill: ['JS', '学校課題', '動的'],
+        comment: '学校のJavaScript試験での制作課題です。HTML・CSSは完成されており、配列管理された情報をJSにて表示させました。'
+    },
+    {
+        title: 'ふくおか餃子FES',
         name: 'gyoza',
         date: '2025年12月～1月制作',
         img: 'gyoza-top.jpg',
-        realize: ['デザイン', 'レスポンシブ対応', 'ハンバーガーメニュー', '問い合わせフォーム', 'GitHub'],
+        realize: ['デザイン', 'レスポンシブ対応', 'ハンバーガーメニュー', '問い合わせフォーム', 'Git管理'],
         task: ['トップページ下部（コーディング）', 'NEWS（コーディング）', 'CONTACT（デザイン・コーディング）', 'FAQ（デザイン）', 'フッター（デザイン・コーディング）', 'その他'],
         url: 'https://dwdw0421-blip.github.io/gyoza-fes_a/',
         git: 'https://github.com/dwdw0421-blip/gyoza-fes_a',
         skill: ['HTML', 'CSS', 'チーム制作'],
         comment: '授業で取り組んだグループ（３人）課題です。'
+    }, {
+        title: 'Go Out Gear',
+        name: 'go',
+        date: '2025年11月制作',
+        img: 'gooutgear.png',
+        realize: ['レスポンシブ対応'],
+        url: 'https://okoba-git.github.io/gooutgear/',
+        git: 'https://github.com/okoba-git/gooutgear',
+        skill: ['HTML', 'CSS', '学校課題'],
+        comment: '学校のHTML・CSS試験での制作課題です。'
     }]
 
 
@@ -53,7 +74,7 @@ const cardArea = document.getElementById('work-card-area');
 worksArray.forEach(work => {
     let cardHtml = '';
     cardHtml += `<li class="c-work-card" id="${work.name}-btn">
-                        <h3 class="c-sub-title">${work.title}</h3>
+                        <h3 class="c-sub-title u-notosans">${work.title}</h3>
                         <img class="c-work-card__img" src="../image/${work.img}" alt="${work.title}HPのトップページデザイン画像。">
                         <ul class="c-work-card__skills">    
                         ${work.skill.map(item => `<li>${item}</li>`).join('')} 
@@ -74,7 +95,9 @@ let currentIndx = 0;
 
 // 該当のモーダルのHTMLを描画する関数
 function modalInner(n) {
-    let html = `<div class="c-dialog__icon-area"><button id="before-btn">←</button><button id="${n.name}-close" class="close"><span></span></button><button class="after-btn">→</button></div> <div class="c-dialog__title-area"><h3 class="c-sub-title">${n.title}</h3></div><p class="u-notosans">${n.date}</p>
+    let html = `<div class="c-dialog__icon-area"><button id="before-btn">←</button><button id="${n.name}-close" class="close"><span></span></button><button class="after-btn">→</button></div> <div class="c-dialog__top-area"><div class="c-dialog__top-area--text"><h3 class="c-sub-title u-notosans">${n.title}</h3>
+    <p class="u-notosans">${n.date}</p></div>
+    <img class="c-dialog__img" src="../image/${n.img}" alt="${n.title}HPのトップページデザイン画像。"></div>
 <!--実装したリアライズ項目の表示 -->
 <ul class="u-notosans c-dialog__realize">
 ${n.realize.map(item => `<li>${item}</li>`).join('')}</ul>
@@ -87,21 +110,21 @@ ${n.realize.map(item => `<li>${item}</li>`).join('')}</ul>
 }
 
 
-// // foreachですべてのモーダルを描画
-// worksArray.forEach(work => {
-//     // ダイアログタグの生成、クラス名・idの付与
-//     let dialog = document.createElement('dialog');
-//     dialog.setAttribute('id', `${work.name}-dialog`);
-//     dialog.setAttribute('class', 'l-dialog c-dialog');
+// foreachですべてのモーダルを描画
+worksArray.forEach(work => {
+    // ダイアログタグの生成、クラス名・idの付与
+    let dialog = document.createElement('dialog');
+    dialog.setAttribute('id', `${work.name}-dialog`);
+    dialog.setAttribute('class', 'l-dialog c-dialog');
 
-//     // ダイアログタグの中身
-//     let html = '';
-//     html += modalInner(work);
+    // ダイアログタグの中身
+    let html = '';
+    html += modalInner(work);
 
-//     // ワークスにダイアログタグを追加
-//     dialog.innerHTML = html;
-//     works.insertBefore(dialog, null);
-// })
+    // ワークスにダイアログタグを追加
+    dialog.innerHTML = html;
+    works.insertBefore(dialog, null);
+})
 
 
 modalInner(worksArray[0]);
