@@ -167,23 +167,21 @@ close.addEventListener('click', () => {
 
 // 矢印の操作
 before.addEventListener('click', () => {
-    if (currentIndex >= 0 && currentIndex < worksArray.length) {
-        currentIndex -= 1;
-        writeModal(currentIndex);
-    } else {
+    console.log(currentIndex);
+    currentIndex--;
+    if (currentIndex < 0 || currentIndex >= worksArray.length) {
         currentIndex = (worksArray.length - 1)
-        writeModal(worksArray.length - 1);
     }
+    writeModal(currentIndex);
 })
 
 after.addEventListener('click', () => {
-    if (currentIndex >= 0 && currentIndex < worksArray.length) {
-        currentIndex += 1;
-        writeModal(currentIndex);
-    } else {
-        currentIndex = 0
-        writeModal(0);
+    console.log(currentIndex);
+    currentIndex++;
+    if (currentIndex < 0 || currentIndex >= worksArray.length) {
+        currentIndex = (0)
     }
+    writeModal(currentIndex);
 })
 
 
