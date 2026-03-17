@@ -22,7 +22,7 @@ const worksArray = [
         name: 'reform',
         date: '2026年1月～2月制作',
         img: 'reform.jpg',
-        realize: ['デザイン', 'レスポンシブ対応', 'ハンバーガーメニュー', 'フィルター機能', '問い合わせフォーム', 'バリデーション', 'Git管理', 'AI活用', 'BEM命名規則'],
+        realize: ['デザイン', 'レスポンシブ対応', 'ハンバーガーメニュー', 'フィルター機能', '問い合わせフォーム', 'バリデーション', 'Git管理', 'AI活用', 'BEM命名規則', 'CSSアニメーション', 'スクロールアニメーション'],
         url: 'https://okoba-git.github.io/reform/index.html',
         git: 'https://github.com/okoba-git/reform',
         skill: ['HTML', 'CSS', 'JS', '個人制作', '動的表示'],
