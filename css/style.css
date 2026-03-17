@@ -3,6 +3,7 @@
     --port-black: #222;
     --port-pink: #FFD1DC;
     --port-orange: rgb(252, 211, 3, 0.7);
+    --port-yellow: rgb(247, 247, 197);
 
     --space-s: 10px;
     --space-m: 20px;
@@ -66,7 +67,7 @@ img {
 
 .c-sub-title::before {
     content: '';
-    background: url(../image/flower-orange.svg) center center/cover;
+    background: url(../image/flower-orange.png) center center/cover;
     display: inline-block;
     width: 20px;
     height: 20px;
@@ -81,30 +82,31 @@ img {
 
 /* MainVisual */
 .p-mv {
-    height: 550px;
+    height: 600px;
     background: url(../image/mv.webp)no-repeat center right/cover;
     display: flex;
-    justify-content: center;
-    align-items: center;
     flex-direction: column;
+    align-items: center;
+    justify-content: end;
     /* ぼかしアニメーション */
-    animation: blurAnime 1.0s ease-out;
+    animation: blurAnime 2.5s ease-out;
 }
 
 .p-name {
-    font-size: clamp(4rem, 3.648rem + 1.502vw, 5rem);
-    padding: 80px 40px;
+    font-size: clamp(5rem, 4.120rem + 3.756vw, 7.5rem);
+    padding-bottom: var(--space-xl);
 }
 
 /* navigation */
 
 .c-header {
-    background-color: var(--port-white);
+    background-color: var(--port-yellow);
     filter: opacity(0.9);
     /* 画面に固定 */
     position: fixed;
     width: 100vw;
     z-index: 1;
+    animation: blurAnime 3s ease-out;
 }
 
 .l-gnav {
@@ -118,11 +120,11 @@ img {
     padding-block: var(--space-s);
     padding-inline: var(--space-m);
     border-radius: 4px;
-    transition: all 300ms ease-in;
 }
 
 .c-gnav__li:hover {
     background: var(--port-orange);
+    transition: all 300ms ease-in;
 }
 
 .c-humburger__nav {
@@ -288,7 +290,7 @@ img {
 }
 
 .c-work-card {
-    background: #ddd;
+    background: var(--port-yellow);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -298,9 +300,9 @@ img {
 }
 
 .c-work-card:hover {
-    transition: all 200ms ease-out;
+    transition: all 400ms ease-out;
     transform: scale(1.04);
-    border: 1px solid var(--port-black);
+    border: 1px solid #ccc;
 }
 
 .c-work-card__img {
@@ -313,7 +315,7 @@ img {
 .c-work__skills {
     display: flex;
     flex-wrap: wrap;
-    column-gap: var(--space-s);
+    gap: var(--space-s);
 }
 
 .c-work__skills li {
@@ -340,14 +342,34 @@ img {
 
 
 /* ダイアログ */
+
+.c-arrow:hover,
+.close:hover,
+.c-dialog__link-text:hover,
+.c-dialog__link-img:hover {
+    background-color: var(--port-orange);
+    transition: all 300ms ease-out;
+}
+
+
 .l-dialog:modal {
-    width: min(80%, 700px);
-    background-color: #ddd;
+    width: min(80%, 800px);
+    background-color: var(--port-yellow);
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: var(--space-l);
+    gap: var(--space-m);
     padding-block: var(--space-l);
+}
+
+html:has(dialog:modal) {
+    overflow: hidden;
+}
+
+dialog::backdrop {
+    backdrop-filter: blur(6px);
+    background: linear-gradient(rgba(0, 0, 0, .2),
+            rgba(0, 0, 0, .8));
 }
 
 .c-dialog__icon-area {
@@ -359,15 +381,7 @@ img {
 .c-arrow {
     padding: var(--space-s);
     border: 1px solid var(--port-black);
-    border-radius: 50%;
-}
-
-.c-arrow:hover,
-.close:hover,
-.c-dialog__link-text:hover,
-.c-dialog__link-img:hover {
-    background-color: var(--port-pink);
-    transition: all 300ms ease-out;
+    border-radius: 15px;
 }
 
 .close {
@@ -400,6 +414,7 @@ img {
     flex-direction: column;
     align-items: center;
     gap: var(--space-m);
+    width: 100%;
 }
 
 .c-dialog__top-area {
@@ -417,10 +432,40 @@ img {
 
 
 .c-dialog__img {
-    width: 40%;
-    height: 200px;
+    width: 60%;
+    height: 400px;
     object-fit: cover;
     object-position: top;
+}
+
+.c-dialog__tasks {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-s);
+}
+
+.c-dialog__tasks p {
+    font-size: 16px;
+}
+
+.c-dialog__realize,
+.p-mytasks {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-s);
+    justify-content: center;
+}
+
+.c-dialog__realize li,
+.p-mytasks li {
+    background-color: var(--port-pink);
+    padding: 4px 5px;
+    font-size: 16px;
+}
+
+.p-mytasks li {
+    font-size: 12px;
 }
 
 .c-dialog__link-area {
@@ -444,22 +489,18 @@ img {
     border-radius: 30px;
 }
 
-.c-dialog__realize,
-.p-mytasks {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--space-s);
-}
 
-.c-dialog__realize li,
-.p-mytasks li {
-    background-color: var(--port-pink);
-    padding: 4px 5px;
-    font-size: 16px;
-}
+@media screen and (max-width: 768px) {
+    .c-dialog__top-area {
+        flex-direction: column;
+        align-items: center;
+        gap: var(--space-m);
+    }
 
-.p-mytasks li {
-    font-size: 12px;
+    .c-dialog__img {
+        width: 70%;
+        height: 300px;
+    }
 }
 
 /* MSG */
@@ -501,7 +542,7 @@ img {
 /* footer */
 
 .l-footer {
-    background: var(--port-orange);
+    background: var(--port-yellow);
     padding-block: var(--space-m);
 }
 
@@ -512,11 +553,11 @@ img {
 /* アニメーション */
 @keyframes blurAnime {
     0% {
-        filter: blur(10px);
+        filter: grayscale(70%) blur(10px);
     }
 
     100% {
-        filter: blur(0px);
+        filter: grayscale(0%) blur(0px);
     }
 
 }

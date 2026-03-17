@@ -18,11 +18,10 @@ humbugerBtn.addEventListener('click', () => {
 
 const worksArray = [
     {
-        num: 0,
         title: 'リカレント工務店',
         name: 'reform',
         date: '2026年1月～2月制作',
-        img: 'reform-index.jpg',
+        img: 'reform.jpg',
         realize: ['デザイン', 'レスポンシブ対応', 'ハンバーガーメニュー', 'フィルター機能', '問い合わせフォーム', 'バリデーション', 'Git管理', 'AI活用', 'BEM命名規則'],
         url: 'https://okoba-git.github.io/reform/index.html',
         git: 'https://github.com/okoba-git/reform',
@@ -30,7 +29,6 @@ const worksArray = [
         comment: '『地域に寄り添う、親しみやすいリフォーム会社』をテーマに、デザインから実装まで一人で完成させた架空のコーポレートサイトです。'
     },
     {
-        num: 1,
         title: 'ポートフォリオ',
         name: 'mypage',
         date: '2026年3月制作',
@@ -42,7 +40,6 @@ const worksArray = [
         comment: '初めての自身のポートフォリオサイトです。'
     },
     {
-        num: 2,
         title: '社員情報一覧',
         name: 'employees',
         date: '2026年2月制作',
@@ -54,23 +51,22 @@ const worksArray = [
         comment: '学校のJavaScript試験での制作課題です。HTML・CSSは完成されており、配列管理された情報をJSにて表示させました。'
     },
     {
-        num: 3,
         title: 'ふくおか餃子FES',
         name: 'gyoza',
         date: '2025年12月～1月制作',
-        img: 'gyoza-top.jpg',
+        img: 'gyoza.jpg',
         realize: ['デザイン', 'レスポンシブ対応', 'ハンバーガーメニュー', '問い合わせフォーム', 'Git管理', 'BEM命名規則'],
         task: ['トップページ下部（コーディング）', 'NEWS（コーディング）', 'CONTACT（デザイン・コーディング）', 'FAQ（デザイン）', 'フッター（デザイン・コーディング）', 'その他'],
         url: 'https://dwdw0421-blip.github.io/gyoza-fes_a/',
         git: 'https://github.com/dwdw0421-blip/gyoza-fes_a',
         skill: ['HTML', 'CSS', 'チーム制作'],
         comment: '授業で取り組んだグループ（３人）課題です。'
-    }, {
-        num: 4,
+    },
+    {
         title: 'Go Out Gear',
         name: 'go',
         date: '2025年11月制作',
-        img: 'gooutgear.png',
+        img: 'go.png',
         realize: ['レスポンシブ対応'],
         url: 'https://okoba-git.github.io/gooutgear/',
         git: 'https://github.com/okoba-git/gooutgear',
@@ -119,7 +115,7 @@ ${n.skill.map(item => `<li>${item}</li>`).join('')} </ul>
 <ul class="u-notosans c-dialog__realize">
 ${n.realize.map(item => `<li>${item}</li>`).join('')}</ul>
 <!--タスク項目があれば表示(三項演算子) -->
-        ${n.task ? `<p>担当ページ</p><ul class="u-center-text u-notosans p-mytasks">${n.task.map(item => ` <li> ${item}</li>`).join('')}</ul>` : ''}
+        ${n.task ? `<div class="c-dialog__tasks"><p>担当ページ</p><ul class="u-center-text u-notosans p-mytasks">${n.task.map(item => ` <li> ${item}</li>`).join('')}</ul></div>` : ''}
 <div class="c-dialog__link-area"><a href="${n.url}" target="_blank" class="c-dialog__link-text">Go page</a><a href="${n.git}" target="_blank"><img src="image/github-icon.svg" class="c-dialog__link-img" alt=""></a>
 </div><p class="u-center-text u-notosans">${n.comment}</p>`;
 
@@ -136,6 +132,7 @@ function writeModal(indexNum) {
     let html = modalInner(worksArray[indexNum]);
     // モーダル描画エリアworksにダイアログタグを追加
     dialogWriteArea.innerHTML = html;
+
 }
 
 
@@ -167,7 +164,6 @@ close.addEventListener('click', () => {
 
 // 矢印の操作
 before.addEventListener('click', () => {
-    console.log(currentIndex);
     currentIndex--;
     if (currentIndex < 0 || currentIndex >= worksArray.length) {
         currentIndex = (worksArray.length - 1)
@@ -176,13 +172,11 @@ before.addEventListener('click', () => {
 })
 
 after.addEventListener('click', () => {
-    console.log(currentIndex);
     currentIndex++;
     if (currentIndex < 0 || currentIndex >= worksArray.length) {
         currentIndex = (0)
     }
     writeModal(currentIndex);
 })
-
 
 
