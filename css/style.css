@@ -138,7 +138,7 @@ img {
 
     .c-humburger__icon {
         border-radius: 4px;
-        background-color: var(--port-white);
+        background-color: var(--port-yellow);
         filter: opacity(0.9);
         /* クリックの範囲を広くする */
         padding: 30px;
@@ -185,7 +185,7 @@ img {
     }
 
     .active .c-humburger__span {
-        background-color: var(--port-white);
+        background-color: var(--port-yellow);
     }
 
     .active .c-humburger__span::before {
@@ -200,7 +200,7 @@ img {
 
 
     .active .c-humburger__nav {
-        background-color: var(--port-white);
+        background-color: var(--port-yellow);
         display: block;
         width: 40vw;
         height: 100vh;
