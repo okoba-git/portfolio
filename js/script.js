@@ -43,7 +43,7 @@ const worksArray = [
         title: '社員情報一覧',
         name: 'employees',
         date: '2026年2月制作',
-        img: 'noimage.jpg',
+        img: 'employees.png',
         realize: ['配列管理', 'フィルター機能', 'モーダル'],
         url: 'https://okoba-git.github.io/emproyees/',
         git: 'https://github.com/okoba-git/emproyees',
