@@ -574,10 +574,10 @@ dialog::backdrop {
 
 @keyframes msgAnime {
     0% {
-        color: rgb(255, 101, 44);
+        color: #888;
     }
 
     100% {
-        color: var(--port-pink);
+        color: rgb(255, 101, 44);
     }
 }
