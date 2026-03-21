@@ -59,7 +59,7 @@ img {
 /* 花のアイコン */
 .c-section-title::before {
     content: '';
-    background: url(../image/flower-pink.png) center center/cover;
+    background: url(../image/flower-pink.webp) center center/cover;
     display: inline-block;
     width: clamp(1.875rem, 1.435rem + 1.878vw, 3.125rem);
     height: clamp(1.875rem, 1.435rem + 1.878vw, 3.125rem);
@@ -198,7 +198,6 @@ img {
         top: 0;
     }
 
-
     .active .c-humburger__nav {
         background-color: var(--port-yellow);
         display: block;
@@ -220,11 +219,7 @@ img {
     }
 }
 
-
-
-
 /* セクションの中の余白 */
-
 .l-about-section,
 .l-works-inner {
     display: flex;
