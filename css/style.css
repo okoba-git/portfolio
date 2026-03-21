@@ -242,8 +242,10 @@ img {
     gap: var(--space-m);
 }
 
-.p-profile-text {
-    font-family: 'Noto Sans JP', sans-serif;
+.l-profile-text {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-s);
 }
 
 /* skills */
