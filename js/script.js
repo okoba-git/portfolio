@@ -18,7 +18,7 @@ const cardArea = getID('work-card-area');
 worksArray.forEach(work => {
     let cardHtml = '';
     cardHtml += `<li class="c-work-card" id="${work.name}-card">
-                        <h3 class="c-sub-title u-notosans">${work.title}</h3>
+                        <h3 class="c-sub-title u-notosans">${work.title}</h3><p class="u-notosans">${work.date}</p>
                         <img class="c-work-card__img" src="image/${work.img}" alt="${work.title}HPのトップページデザイン画像。">
                         <ul class="c-work__skills">    
                         ${work.skill.map(item => `<li>${item}</li>`).join('')} 
@@ -52,7 +52,7 @@ ${n.skill.map(item => `<li>${item}</li>`).join('')} </ul>
 ${n.realize.map(item => `<li>${item}</li>`).join('')}</ul>
 <!--タスク項目があれば表示(三項演算子) -->
         ${n.task ? `<div class="c-dialog__tasks"><p>担当ページ</p><ul class="u-center-text u-notosans p-mytasks">${n.task.map(item => ` <li> ${item}</li>`).join('')}</ul></div>` : ''}
-<div class="c-dialog__link-area"><a href="${n.url}" target="_blank" class="c-dialog__link-text">Go page</a><a href="${n.git}" target="_blank"><img src="image/github-icon.svg" class="c-dialog__link-img" alt=""></a>
+<div class="c-dialog__link-area"><a href="${n.url}" target="_blank" class="c-dialog__link-text">サイトを見る</a><a href="${n.git}" target="_blank"><img src="image/github-icon.svg" class="c-dialog__link-img" alt=""></a>
 </div><p class="u-center-text u-notosans">${n.comment}</p>`;
 
     return html;
