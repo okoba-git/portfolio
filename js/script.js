@@ -1,10 +1,6 @@
-// IDを取得する関数
-function getID(idName) {
-    return document.getElementById(idName);
-}
 
 // ハンバーガーメニュー
-const humbugerBtn = getID('humburger-btn');
+const humbugerBtn = document.getElementById('humburger-btn');
 
 humbugerBtn.addEventListener('click', () => {
     humbugerBtn.classList.toggle("active");
@@ -13,29 +9,30 @@ humbugerBtn.addEventListener('click', () => {
 
 
 // カード描画エリアの取得（常に表示するもの）
-const cardArea = getID('work-card-area');
+const cardArea = document.getElementById('work-card-area');
 // foreachで描画
 worksArray.forEach(work => {
     let cardHtml = '';
-    cardHtml += `<li class="c-work-card" id="${work.name}-card">
+    cardHtml += `<button class="c-work-card" id="${work.name}-card">
                         <h3 class="c-sub-title u-notosans">${work.title}</h3><p class="u-notosans">${work.date}</p>
                         <img class="c-work-card__img" src="image/${work.img}" alt="${work.title}HPのトップページデザイン画像。">
                         <ul class="c-work__skills">    
                         ${work.skill.map(item => `<li>${item}</li>`).join('')} 
                         </ul>
-                    </li > `;
+                    </button
+                     > `;
     cardArea.insertAdjacentHTML('beforeend', cardHtml);
 })
 
 
 // Worksセクションを取得（モーダル描画エリア）
-const dialogWriteArea = getID('dialog-write-area');
+const dialogWriteArea = document.getElementById('dialog-write-area');
 
 // 各要素取得
 // 開閉時に使う
-const dialog = getID('dialog');
+const dialog = document.getElementById('dialog');
 // close取得
-const close = getID('close');
+const close = document.getElementById('close');
 // 矢印の要素取得
 let before = document.querySelector('.before-btn');
 let after = document.querySelector('.after-btn');
@@ -79,7 +76,7 @@ let worksIdArray = worksArray.map(e => {
 });
 // 実際に取得
 let cardId = worksIdArray.map(id => {
-    return getID(`${id}`);
+    return document.getElementById(`${id}`);
 })
 
 

@@ -49,7 +49,6 @@ img {
 .c-section-title {
     font-size: clamp(2.5rem, 1.972rem + 2.254vw, 4rem);
     text-align: center;
-    /* font-weight: bold; */
 }
 
 .c-sub-title {
@@ -87,14 +86,14 @@ img {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: end;
+    justify-content: center;
     /* ぼかしアニメーション */
     animation: blurAnime 2.5s ease-out;
 }
 
 .p-name {
-    font-size: clamp(5rem, 4.120rem + 3.756vw, 7.5rem);
-    padding-bottom: var(--space-xl);
+    font-size: clamp(3rem, 2.296rem + 3.005vw, 5rem);
+    background-color: #f1f1f386;
 }
 
 /* navigation */
@@ -111,12 +110,12 @@ img {
 
 .l-gnav {
     display: flex;
+    justify-content: center;
     gap: clamp(0.5rem, -0.644rem + 4.883vw, 3.75rem);
 }
 
 .c-gnav__li {
-    font-size: clamp(1.875rem, 1.479rem + 1.69vw, 3rem);
-    font-weight: bold;
+    font-size: clamp(1rem, 0.648rem + 1.502vw, 2rem);
     padding-block: var(--space-s);
     padding-inline: var(--space-m);
     border-radius: 4px;
@@ -220,7 +219,7 @@ img {
 }
 
 /* セクションの中の余白 */
-.l-about-section,
+.l-about-inner,
 .l-works-inner {
     display: flex;
     flex-direction: column;
@@ -228,6 +227,11 @@ img {
 }
 
 /* About */
+
+.l-about-section {
+    padding-block: var(--space-xl);
+    background-color: #fff;
+}
 
 .l-skill,
 .l-profile {
@@ -253,13 +257,6 @@ img {
 
 .p-skill-icon {
     width: clamp(3.125rem, 2.465rem + 2.817vw, 5rem);
-    /* width: 50px; */
-    filter: saturate(10%);
-}
-
-.p-skill-icon:hover {
-    filter: saturate(170%);
-    transition: all 300ms ease-in-out 10ms;
 }
 
 @media screen and (max-width: 768px) {
@@ -287,7 +284,7 @@ img {
 }
 
 .c-work-card {
-    background: var(--port-yellow);
+    background: var(--port-white);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -307,6 +304,7 @@ img {
     height: 300px;
     object-fit: cover;
     object-position: top;
+    border: 1px solid #ccc;
 }
 
 .c-work__skills {
@@ -352,7 +350,8 @@ img {
 
 .l-dialog:modal {
     width: min(80%, 800px);
-    background-color: var(--port-yellow);
+    height: 90%;
+    background-color: var(--port-white);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -434,6 +433,7 @@ dialog::backdrop {
     height: 400px;
     object-fit: cover;
     object-position: top;
+    border: 1px solid #ccc;
 }
 
 .c-dialog__tasks {
