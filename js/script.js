@@ -14,11 +14,14 @@ const cardArea = document.getElementById('work-card-area');
 worksArray.forEach(work => {
     let cardHtml = '';
     cardHtml += `<button class="c-work-card" id="${work.name}-card">
-                        <h3 class="c-sub-title u-notosans">${work.title}</h3><p class="u-notosans">${work.date}</p>
+    <p>【${work.category}】</p>
+                        <h3 class="c-sub-title u-notosans">${work.title}</h3>
+                        <p class="u-notosans">${work.date}</p>
                         <img class="c-work-card__img" src="image/${work.img}" alt="${work.title}HPのトップページデザイン画像。">
                         <ul class="c-work__skills">    
                         ${work.skill.map(item => `<li>${item}</li>`).join('')} 
                         </ul>
+                        <p class="c-works__click-btn">Click here！</p>
                     </button
                      > `;
     cardArea.insertAdjacentHTML('beforeend', cardHtml);

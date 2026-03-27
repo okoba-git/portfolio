@@ -1,9 +1,13 @@
 :root {
     --port-white: #F1F1F3;
     --port-black: #222;
-    --port-pink: #FFD1DC;
+    --port-pink: #e4b5c0;
     --port-orange: rgb(252, 211, 3, 0.7);
     --port-yellow: rgb(247, 247, 197);
+
+    /* --port-orange: #D89E00; */
+    /* --port-yellow: #E0DFA0; */
+
 
     --space-s: 10px;
     --space-m: 20px;
@@ -242,9 +246,11 @@ img {
 }
 
 .l-profile-text {
+    width: min(100%, 800px);
     display: flex;
     flex-direction: column;
     gap: var(--space-s);
+    text-align: left;
 }
 
 /* skills */
@@ -297,6 +303,11 @@ img {
     transition: all 400ms ease-out;
     transform: scale(1.04);
     border: 1px solid #ccc;
+}
+
+.c-works__click-btn {
+    background-color: var(--port-pink);
+    padding: var(--space-s);
 }
 
 .c-work-card__img {
@@ -484,7 +495,7 @@ dialog::backdrop {
     display: block;
     padding: 5px var(--space-s);
     border-radius: 30px;
-    color: var(--port-yellow);
+    color: var(--port-white);
     background-color: var(--port-black);
 }
 
