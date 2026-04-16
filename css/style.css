@@ -256,11 +256,11 @@ img {
 /* skills */
 
 .l-skill-icons {
-    border: 1px solid #000;
     width: 100%;
-    /* display: flex; */
-    /* align-items: center; */
-    /* gap: var(--space-l); */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-l);
 }
 
 .p-skill-icon img {
@@ -464,6 +464,15 @@ dialog::backdrop {
     padding: var(--space-s);
     background: var(--port-orange);
     font-size: 12px;
+}
+
+.l-dialog__footer{
+    width: 100%;
+}
+
+.l-dialog__icons{
+    display: flex;
+    justify-content: space-around;
 }
 
 @media screen and (max-width: 768px) {}
