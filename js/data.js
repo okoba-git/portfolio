@@ -9,7 +9,7 @@ const worksArray = [
         realize: ['デザイン', 'フィルター機能', '問い合わせフォーム', 'バリデーション', 'AI活用', 'スクロールアニメーション'],
         url: 'https://okoba-git.github.io/reform/index.html',
         git: 'https://github.com/okoba-git/reform',
-        skill: ['HTML', 'CSS', 'JS', '個人制作'],
+        skill: ['HTML', 'CSS', 'JS'],
         comment: '『地域に寄り添う、親しみやすいリフォーム会社』をテーマに、デザインから実装まで一人で完成させた架空のコーポレートサイトです。'
     },
     {
@@ -21,7 +21,7 @@ const worksArray = [
         realize: ['デザイン', 'レスポンシブ対応', 'モーダル', 'CSSアニメーション'],
         url: 'https://okoba-git.github.io/portfolio/index.html',
         git: 'https://github.com/okoba-git/portfolio',
-        skill: ['HTML', 'CSS', 'JS', '個人制作'],
+        skill: ['HTML', 'CSS', 'JS'],
         comment: '初めての自身のポートフォリオサイトです。'
     },
     {
@@ -33,7 +33,7 @@ const worksArray = [
         realize: ['配列管理', 'フィルター機能', 'モーダル'],
         url: 'https://okoba-git.github.io/emproyees/',
         git: 'https://github.com/okoba-git/emproyees',
-        skill: ['JS', '学校課題',],
+        skill: ['JS', '学校課題'],
         comment: '学校のJavaScript試験での制作課題です。HTML・CSSは完成されており、配列管理された情報をJSにて表示させました。'
     },
     {
@@ -46,7 +46,7 @@ const worksArray = [
         task: ['トップページ下部', 'NEWS', 'CONTACT', 'FAQ', 'フッター', 'その他'],
         url: 'https://dwdw0421-blip.github.io/gyoza-fes_a/',
         git: 'https://github.com/dwdw0421-blip/gyoza-fes_a',
-        skill: ['HTML', 'CSS', 'チーム制作'],
+        skill: ['HTML', 'CSS'],
         comment: '授業で取り組んだグループ（３人）課題です。'
     },
     {
@@ -58,7 +58,7 @@ const worksArray = [
         realize: ['レスポンシブ対応'],
         url: 'https://okoba-git.github.io/gooutgear/',
         git: 'https://github.com/okoba-git/gooutgear',
-        skill: ['HTML', 'CSS', '学校課題'],
+        skill: ['HTML', 'CSS'],
         comment: '学校のHTML・CSS試験での制作課題です。'
     }]
 

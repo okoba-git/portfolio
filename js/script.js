@@ -28,8 +28,12 @@ worksArray.forEach(work => {
 })
 
 
-// Worksセクションを取得（モーダル描画エリア）
-const dialogWriteArea = document.getElementById('dialog-write-area');
+// モーダル描画エリア取得
+// const dialogWriteArea = document.getElementById('dialog-write-area');
+
+const opArea = document.querySelector('.c-dialog__top-area');
+const skillArea = document.querySelector('.c-work__skills');
+const linkArea = document.querySelector('c-dialog__link-area');
 
 // 各要素取得
 // 開閉時に使う
@@ -43,17 +47,23 @@ let after = document.querySelector('.after-btn');
 
 // 該当のモーダルのHTML(dialogの中身)
 function modalInner(n) {
-    let html = `<div class="c-dialog__top-area"><div class="c-dialog__top-area--text"><h3 class="c-sub-title u-notosans">${n.title}</h3>
-    <p class="u-notosans">${n.date}</p></div>
-    <img class="c-dialog__img" src="image/${n.img}" alt="${n.title}HPのトップページデザイン画像。"></div>
-<ul class="c-work__skills">    
-${n.skill.map(item => `<li>${item}</li>`).join('')} </ul>
-<ul class="u-notosans c-dialog__realize">
-${n.realize.map(item => `<li>${item}</li>`).join('')}</ul>
-<!--タスク項目があれば表示(三項演算子) -->
-        ${n.task ? `<div class="c-dialog__tasks"><p>担当ページ</p><ul class="u-center-text u-notosans p-mytasks">${n.task.map(item => ` <li> ${item}</li>`).join('')}</ul></div>` : ''}
-<div class="c-dialog__link-area"><a href="${n.url}" target="_blank" class="c-dialog__link-text">サイトを見る</a><a href="${n.git}" target="_blank"><img src="image/github-icon.svg" class="c-dialog__link-img" alt=""></a>
-</div><p class="u-center-text u-notosans">${n.comment}</p>`;
+
+
+    //     let html = `<div class="c-dialog__top-area--text"><h3 class="c-sub-title u-notosans">${n.title}</h3>
+
+
+    //     <img class="c-dialog__img" src="image/${n.img}" alt="${n.title}HPのトップページデザイン画像。">
+
+
+    // ${n.skill.map(item => `<li>${item}</li>`).join('')} 
+    // <ul class="u-notosans c-dialog__realize">
+    // ${n.realize.map(item => `<li>${item}</li>`).join('')}</ul>
+    // <!--タスク項目があれば表示(三項演算子) -->
+    //         ${n.task ? `<div class="c-dialog__tasks"><p>担当ページ</p><ul class="u-center-text u-notosans p-mytasks">${n.task.map(item => ` <li> ${item}</li>`).join('')}</ul></div>` : ''}
+
+
+    // <a href="${n.url}" target="_blank" class="c-dialog__link-text">サイトを見る</a><a href="${n.git}" target="_blank"><img src="image/github-icon.svg" class="c-dialog__link-img" alt=""></a>
+    // <p class="u-center-text u-notosans">${n.comment}</p>`;
 
     return html;
 }
@@ -64,11 +74,8 @@ let currentIndex = 0;
 // ダイアログタグの中身を作る関数
 function writeModal(indexNum) {
     currentIndex = indexNum
-    // 中身
-    let html = modalInner(worksArray[indexNum]);
-    // モーダル描画エリアworksにダイアログタグを追加
-    dialogWriteArea.innerHTML = html;
-
+    // モーダルに描画
+    dialogWriteArea.innerHTML = modalInner(worksArray[indexNum]);;
 }
 
 
