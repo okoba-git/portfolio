@@ -51,7 +51,7 @@ function writeModalFunc(num) {
 
     info.innerHTML = `<p>【${worksArray[num].category}】</p><p>${worksArray[num].comment}</p>`;
 
-    linkArea.innerHTML = `<a href="${worksArray[num].url}"><img src="image/${worksArray[num].img}" alt="" class="p-dialog__img"></a><div class="l-dialog__btns"><a href="${worksArray[num].url}">Go page</a><a href="${worksArray[num].git}"><img src="image/github-icon.svg" alt="">`;
+    linkArea.innerHTML = `<a href="${worksArray[num].url}"><img src="image/${worksArray[num].img}" alt="" class="p-dialog__img"></a><div class="l-dialog__btns"><a href="${worksArray[num].url}" class="p-dialog__btn">Go page</a><a href="${worksArray[num].git}"><img src="image/github-icon.svg" alt="" class="p-dialog__git-btn">`;
 
     items.innerHTML = worksArray[num].realize.map(item => `<li class="p-dialog__box">${item}</li>`).join('');
 }
